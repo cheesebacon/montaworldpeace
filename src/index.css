@@ -1,0 +1,256 @@
+/* --- THE PERFECTED THEME VARIABLES --- */
+:root {
+  --color-pink-light: #FFB6C1;
+  --color-yellow-bright: #FFEE58;
+  --color-pink-hot: #FF1493;
+  --color-purple-retro: #4B0082;
+  --color-orange: #FF8C00;
+  
+  --bg-sidebar: var(--color-purple-retro);
+  --text-main: #1A1A1A;
+  --text-sidebar: #FFFFFF;
+}
+
+/* --- RESET & BASE --- */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-yellow-bright);
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* --- SIDEBAR (Now Fixed) --- */
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-sidebar);
+  color: var(--text-sidebar);
+  padding: 20px;
+  /* FIXED POSITIONING LOGIC */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto; /* Just in case your link list gets very long */
+  z-index: 100;
+  border-right: 8px solid var(--color-pink-hot);
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  color: var(--color-yellow-bright);
+  text-shadow: 2px 2px 0px var(--color-pink-hot);
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  color: var(--color-yellow-bright) !important;
+  text-shadow: 0px 0px 8px var(--color-pink-hot);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* --- MAIN CONTENT (Adjusted for Fixed Sidebar) --- */
+.main-content {
+  flex-grow: 1;
+  margin-left: 250px; /* This prevents content from hiding behind the sidebar */
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom, 
+    var(--color-pink-light) 0%, 
+    var(--color-yellow-bright) 100%
+  );
+  background-attachment: fixed; 
+  background-size: cover;
+  color: var(--text-main);
+  padding: 40px;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px dashed var(--color-orange);
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- HOME PAGE HOVER EFFECTS --- */
+.home-container a {
+  display: block;
+  text-decoration: none;
+}
+
+.home-container a:hover .content-card {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* --- FOOTNOTES & SEGMENTS --- */
+.post-segment {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 40px;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+
+.footnote {
+  font-size: 0.8rem;
+  color: var(--color-purple-retro);
+  border-left: 2px solid rgba(157, 80, 187, 0.3);
+  padding-left: 10px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.friend-card-link {
+  transition: transform 0.3s ease;
+}
+
+.friend-card-link:hover {
+  transform: rotate(0deg) translateY(-12px) scale(1.02) !important;
+  z-index: 10;
+}
+
+.friend-card-link:hover .friend-card {
+  box-shadow: 0px 20px 40px rgba(75, 0, 130, 0.3);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: var(--color-pink-hot) !important;
+}
+
+.social-card-link:hover .social-card {
+  background-color: rgba(157, 80, 187, 0.05) !important; 
+  border-color: var(--color-purple-retro) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.social-card-link:hover h3 {
+  color: var(--color-orange) !important; 
+}
+
+.video-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--color-orange) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TWITCH LIGHTS (Preserved) --- */
+.status-light-offline {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #555;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  display: inline-block;
+}
+
+.status-light-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+  display: inline-block;
+  animation: pulse-red 1.5s infinite;
+}
+
+.contribute-btn:hover {
+  background-color: var(--color-pink-hot) !important;
+  color: black !important;
+  box-shadow: 0 0 10px var(--color-pink-hot);
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* Responsive Chat Hiding */
+@media (max-width: 900px) {
+  .chat-container {
+    display: none;
+  }
+  .twitch-page-wrapper div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --- MOBILE RESPONSIVENESS (Resetting Fixed Sidebar) --- */
+@media (max-width: 768px) {
+  .app-container { 
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    position: relative !important; /* Unlocks the sidebar so it stacks on mobile */
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    border-right: none !important;
+    border-bottom: 8px solid var(--color-pink-hot);
+    padding: 15px;
+  }
+
+  .main-content {
+    margin-left: 0 !important; /* Removes the margin so content spans the screen */
+    width: 100% !important;
+    padding: 15px !important;
+  }
+  
+  /* Keeping your existing mobile overrides below */
+  .sidebar h1 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar li {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+
+  .post-segment {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .footnote {
+    border-left: none;
+    border-top: 1px solid rgba(157, 80, 187, 0.3);
+    padding: 5px 0 10px 0;
+  }
+}
+
