@@ -150,7 +150,7 @@ function App() {
                   lineHeight: '1.4', 
                   opacity: 0.7 
                 }}>
-                  If you believe I contribute value, consider contributing:
+                  If you believe I add value to the world, consider contributing:
                 </p>
 
                 <div style={{ display: 'flex', gap: '8px' }}>
