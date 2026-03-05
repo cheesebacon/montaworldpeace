@@ -10,12 +10,83 @@ export default function Friends() {
       image: "/images/tiger-avatar.jpg" 
     },
     {
-      name: "Friend Name 2",
-      link: "https://youtube.com/example",
-      description: "Another description here. Keeping it personal makes the community feel real.",
-      tag: "Musician",
-      image: "" 
+      name: "Agatha",
+      link: "https://snkrgirl.cfd/index.html",
+      description: "One of my Brazilian besties discussing fashion, culture, and most importantly: sneakers.",
+      tag: "Sneaker Enthusiast",
+      image: "/images/agatha.jpg" 
     },
+    {
+      name: "Syphist",
+      link: "https://zoner.work/@syphist",
+      description: "Just seriously an extremely kind an interesting person that was like 'ya, I'd like to be in your Friends' Corner too.'",
+      tag: "Dope Person",
+      image: "/images/chloe.png" 
+    },
+    {
+      name: "Fennel",
+      link: "https://discord.gg/gXmS2AxSXk",
+      description: "A sincerely incisive, creative, and hilarious person who took it upon herself to start a community of likeminded people.",
+      tag: "Community Creator",
+      image: "/images/fennel.png" 
+    },
+    {
+      name: "Top 3 Protected",
+      link: "https://open.spotify.com/show/5kGDSoGmHrnOehQFhacMKL",
+      description: "Have you ever wanted to listen to a basketball podcast that makes you think 'I'm glad I'm wearing headphones?' This one is perfect.",
+      tag: "Podcast",
+      image: "/images/top3.png" 
+    },
+    {
+      name: "The Dunker Spot",
+      link: "https://open.spotify.com/show/4ci0WrkZSWvKPjBCCMSlJe",
+      description: "Nekias and Steve are better at talking about basketball than anyone. Maybe Caitlin Cooper and Samson are up there. I don't know. But it's just them.",
+      tag: "Podcast",
+      image: "/images/dunkerspot.png" 
+    },
+    {
+      name: "FizTheAncient",
+      link: "https://bsky.app/profile/fiztheancient.bsky.social",
+      description: "Basically the funniest person alive. Basically. WARNING: Occasional NSFW content. It's marked, but like, yeah. Grow up.",
+      tag: "Artist",
+      image: "/images/fiz.png" 
+    },
+    {
+      name: "Hollyrious",
+      link: "https://www.twitch.tv/hollyrious",
+      description: "The person whom I consider to be a born streamer. I cried watching her play Death Stranding, so that probably means she's good.",
+      tag: "Twitch Streamer",
+      image: "/images/holly.png" 
+    },
+    {
+      name: "Kat",
+      link: "https://www.twitch.tv/puzzler995",
+      description: "Friend and streamer and one of the eight unelected rulers of North Carolina.",
+      tag: "Twitch Streamer",
+      image: "/images/kat.png" 
+    },
+    {
+      name: "busyxb",
+      link: "https://wbb-roundup.beehiiv.com/subscribe",
+      description: "Black Rosie Media's founder. National basketball coverage from a kickass dude with a local focus on things NYC.",
+      tag: "Journalist",
+      image: "/images/busy.jpg" 
+    },
+    {
+      name: "Rebekah Valentine",
+      link: "https://www.ign.com/person/duckvalentine",
+      description: "The best game journalist. She taught me how to write stuff good well. I'm her fault, to some small degree.",
+      tag: "Journalist",
+      image: "/images/rebekah.jpg" 
+    },
+    {
+      name: "FlyingBatteryBacon",
+      link: "purevolume.com/constantreminder",
+      description: "One of the two best composers I know, and one of my best friends since like fucen high school.",
+      tag: "Composer",
+      image: "/images/bacon.png" 
+    },
+    // ... add 
     // ... add more friends here
   ];
 

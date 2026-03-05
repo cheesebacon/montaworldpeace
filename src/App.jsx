@@ -12,14 +12,15 @@ import Friends from './pages/Friends';
 import Blog from './pages/Blog';
 import Library from './pages/Library';
 import PostDetail from './pages/PostDetail';
+import PostTransformer from './pages/PostTransformer';
 
 function App() {
   const [isLive, setIsLive] = useState(false);
-  const [showSupport, setShowSupport] = useState(true); // State for dismissible box
+  const [showSupport, setShowSupport] = useState(true); 
   const channelName = "montaworldpeace";
   
-  const CLIENT_ID = 'ng012e5xkmsqbhxts7eek6vfgriwwz';
-  const CLIENT_SECRET = 'p4ypeaurjpc56fyoepwgust6jrk784';
+const CLIENT_ID = import.meta.env.VITE_TWITCH_CLIENT_ID;
+const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
 
   useEffect(() => {
     async function checkStatus() {
@@ -157,7 +158,7 @@ function App() {
                   <a href="https://ko-fi.com/montaworldpeace" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
                     <span style={{ fontSize: '1.2rem' }}>☕</span> KO-FI
                   </a>
-                  <a href="https://paypal.me/yourpaypal" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
+                  <a href="paypal.me/MontaWorldPeace" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
                     <span style={{ fontSize: '1.2rem' }}>💸</span> PAYPAL
                   </a>
                 </div>
@@ -180,6 +181,7 @@ function App() {
             <Route path="/friends" element={<Friends />} />
             <Route path="/library" element={<Library />} />
             <Route path="/post/:slug" element={<PostDetail />} />
+            <Route path="/transformer" element={<PostTransformer />} />
           </Routes>
         </main>
 
@@ -188,7 +190,6 @@ function App() {
   );
 }
 
-// Button Style Object to avoid repetition
 const btnStyle = {
   flex: 1,
   textAlign: 'center',

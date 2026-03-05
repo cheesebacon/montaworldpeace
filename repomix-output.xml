@@ -1,0 +1,2067 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+deploy.bat
+eslint.config.js
+index.html
+package.json
+public/images/tiger-avatar.jpg
+public/robots.txt
+public/vite.svg
+README.md
+src/App.jsx
+src/data/beachStory.js
+src/data/creativeProcess.js
+src/data/detachment.js
+src/data/index.js
+src/data/knicksGrok.js
+src/data/libraryData.js
+src/data/musicList.js
+src/data/pamageLog.js
+src/data/recorded.js
+src/data/storyList.js
+src/data/videoList.js
+src/index.css
+src/main.jsx
+src/pages/Basketball.jsx
+src/pages/Blog.jsx
+src/pages/Friends.jsx
+src/pages/Home.jsx
+src/pages/Library.jsx
+src/pages/MessageBoard.jsx
+src/pages/Music.jsx
+src/pages/Pamage.jsx
+src/pages/Personal.jsx
+src/pages/PostDetail.jsx
+src/pages/Socials.jsx
+src/pages/Twitch.jsx
+src/pages/Videos.jsx
+vite.config.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="deploy.bat">
+@echo off
+echo 🚀 Building the React app...
+call npm run build
+
+echo 📦 Sending files to the Droplet...
+scp -r dist/* root@104.131.34.194:/var/www/html
+
+echo ✅ Done! Visit https://montaworldpeace.com
+pause
+</file>
+
+<file path="public/robots.txt">
+User-agent: *
+Disallow: /
+
+# Specifically block AI scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+</file>
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>montaworldpeace</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, nosnippet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="package.json">
+{
+  "name": "montaworldpeace",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.13.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.3.1"
+  }
+}
+</file>
+
+<file path="public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+</file>
+
+<file path="README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+</file>
+
+<file path="src/data/beachStory.js">
+export const beachStory = {
+  id: "beach-story",
+  slug: "beach-story",
+  title: "Short Beach Story", 
+  tagline: "This feels a bit more accurate.",
+  description: "I kind of always hated the way this story was told in the past. So I did it better.",
+  year: "2025",
+  body: [
+    {text: "BEEEEEEEEEEEEEACH", note: "story"},
+  ]
+};
+</file>
+
+<file path="src/data/creativeProcess.js">
+export const creativeProcess = {
+  slug: "die",
+  title: "I have no plans for the future and neither should you.",
+  date: "2024-05-28",
+  category: "Personal",
+  body: [
+    {
+      text: "Fulfill your labor quotient then die.",
+      note: ""
+    },
+  ]
+};
+</file>
+
+<file path="src/data/detachment.js">
+export const detachment = {
+  id: "detachment",
+  slug: "detachment",
+  title: "Detachment – Chapter 1",
+  tagline: "Give me back my shin.",
+  description: "I don't care how much storage I have. This is not okay.",
+  year: "2013",
+  body: [
+    { text: "He wanted to say something. He felt right about it. \"You stole my shin!\"" },
+    { text: "The receptionist didn't understand. He felt still right. He didn't mean the receptionist personally, but she was the first person to listen to him." },
+    { text: "She looked up and smiled. \"Sir, I'm sorry, but I have to ask you to please lower your voice. Some of our patients have sensitive hearing, and while I recognize you may be unhappy, I do, and that you have every right to voice your displeasure, I also need to take account of the interest of our other patrons.\"" },
+    { text: "Still smiling. \"If you would like to continue with your voice at that volume, you can step outside into the foyer and call the desk at 734-014-091. I'll be happy to listen to your complaints, and the reverberations will give your voice an intimidating depth. Quite scary. I know it helps to let some things out sometimes.\"" },
+    { text: "Please stop smiling. He took a brief moment to pout before responding, \"I'll be quiet. Just… walking hurts, and I don't have a phone.\"" },
+    { text: "Satisfied, she pulled out her keyboard and began typing. \"I'm sorry to hear you are in pain, sir. I'll enter you into the queue immediately. Could I have your name please?\"" },
+    { text: "His eyes fled to the right. They stayed there while he responded, \"It's Mark.\" Nodding along, she continued typing. \"Thank you, and what's your last name?\"" },
+    { text: "\"I don't care.\"" },
+    { text: "Her fingers hung before she encouraged, \"I don't mean to be a nuisance, but we do need it for our records, sir.\"" },
+    { text: "Fuck. \"I don't know!\" He didn't know. Her eyebrows peaked; her tension asked him to calm down. Mark pretended to do that." },
+    { text: "She pressed on, \"Okay. That's absolutely fine. Everyone forgets things. Do you have your driver's license?\" He didn't move. \"Or any form of ID? Identification?\"" },
+    { text: "Mark shuffled to the ragged duffel bag over his right shoulder. The zipper resisted, caught on what appeared to be a shaggy, brown fabric. He dislodged the fabric with care, and the bagged twitched. \"I have a medical insurance card. I think it's mine.\"" },
+    { text: "This was progress. \"That will be perfect. Can I see it, please,\" she said. Mark paused." },
+    { text: "He thought he had to. Someone had something to learn here, and it wasn't him. It couldn't be him. He wouldn't learn a thing. \"That wasn't a question. You didn't ask that like a question. But yes.\"" },
+    { text: "He was happy to be right. He apologized to the bag and pulled out his ID. The receptionist slid the glass window open and took the card. It was slick. She fumbled it, wiped it on a tissue, and looked it over intently. \"Um.\"" },
+    { text: "She put on her glasses and flipped the card around. She flipped it back and looked over her desk. \"Mark. It just says Mark.\" \"Yes.\"" },
+    { text: "With polite confusion, \"That's a nice name.\" \"Thank you. What's yours?\"" },
+    { text: "She wasn't going to answer that. She was occupied wondering ‘what the fuck?’ A series of questions ran through her head, all of them necessary but most violation of privacy and she wasn't sure which ones were which. She liked her job, and it'd be hard for her to continue doing it if she were fired." },
+    { text: "\"I would like to mention, sir, this isn't an insurance card; it's a hospital ID.\" \"That's fine. It said ‘medical’ on it. I didn't read the rest. But I came here. Hi.\"" },
+    { text: "\"Hello, sir.\" Her smile was sliding slowly to pity. \"We're all very busy. Have you ever been an employee of the medical center? Perhaps I can find your vita on file.\"" },
+    { text: "Mark liked her. Mark thought she was nice. Mark began planning minor medical emergencies so that he could see her again." },
+    { text: "\"Yes. Once. I think. I think I was supposed to be paid once. They didn't want to. They thought I was a body, but I moved.\"" },
+    { text: "She looked back to him, stuck, trying to pull more details of the story from his eyes. A hollow echo convinced her it was better not to know. He confirmed, \"Hurry up, please. My leg hurts.\"" },
+    { text: "She fled back to smiling, \"Yes. My apologies sir.\" More typing. The system had nothing she needed. \"I hate to tell you this, but we have no record of a ‘Mark’ matching your description ever being employed here.\"" },
+    { text: "Mark was not concerned. He didn't have any record of it either. \"And there's no information at any of our satellite clinics. Are you sure you're in the right place?\"" },
+    { text: "He did his best to turn his response into some sort of charming compliment. \"I wasn't when I came in, but I am now.\"" },
+    { text: "She broke eye contact. She wasn't going to look back. \"I mean…\" Fuck. Dean Ambrose wouldn't have said that. \"I mean no.\"" },
+    { text: "The line behind the man was starting to stretch. \"There's not much I can do for you, sir. Would you mind if I help the patrons behind you while you get your thoughts together.\"" },
+    { text: "She had pretty much broken up with him, so Mark saw no point in trying to be nice now. \"No. You didn't ask that like a question either and you haven't helped me yet. I want this thing off my leg,\" the wall behind her had a picture of a happy cat, \"and I want it fixed, and I need my name back. Give me back my card.\"" },
+    { text: "His bag started to growl. She focused at the lock on her window. With all sympathy, she replied, \"I feel obligated to tell you that it's a felony to impersonate a hospital employee.\"" },
+    { text: "Being emotional wasn't working, so Mark's demeanor shifted to pain. He didn't have to fake it, and even if she didn't love him anymore, she was nice. Mark dropped his shoulders and looked down. With a slight cringe, he breathed, \"Please.\"" },
+    { text: "She glanced back to the line; no one seemed impatient yet. In her opinion, they were more entertained than agitated. She had always wanted to be an entertainer. \"Let me see. There's an emergency contact listed on the card. If you'd like, I can give them a call.\"" },
+    { text: "Mark implored, \"Good.\" \"Great. I will do that presently, sir.\"" },
+    { text: "Mark leaned down on the desk, shoving his neck through the sliding glass window. She didn't look up, \"You can stay right there if you'd like to listen my conversation, sir.\" \"I will.\"" },
+    { text: "He placed the fidgeting bag on the counter next to him. \"Hello… This is Fayette Medical Center. Is this… Oh. I didn't know this was your number, doctor… I didn't know… Yes, I'll forget it immediately… Yes, absolutely… Well- yes, I will… I do. There's a tremendously patient gentleman in the waiting room and he's requesting treatment for…\"" },
+    { text: "She covered the receiver with her hand, \"I'm sorry sir, what seems to be your trouble again?\" He pointed to his leg. She couldn't see it. There was a desk in the way. \"My shin is gone. I want it back.\"" },
+    { text: "\"He appears to be missing his shin, Doctor… Yes… His shin… Really?.. Oh, that's great news. He'll be delighted to hear it.\"" },
+    { text: "She gave a slight thumbs-up with her free hand, and Mark thought he fell back in love. If he did, it didn't matter. He was going to forget anyway." },
+    { text: "\"I'll send him to your office at once… Oh, alright... Yes, he'll be waiting for you there… Sorry to bother you, Doctor. Thank you for the hel- oh.\"" },
+    { text: "She stumbled the phone off her ear and motioned Mark to the side of her desk. \"Okay, if you'll follow me, sir, the doctor will see you.\" \"Okay.\"" },
+    { text: "Mark secured the bag under his right arm and walked to the door at the end of the room. It was locked. He didn't think it would be locked. He had the choice of turning around and facing the people in the lobby or standing a half inch away from the door, waiting for it to open. He decided to wait it out. It swung open quickly." },
+    { text: "\"Okay sir, if you'll- HOLY SH-“ She did not expect his face to be waiting. \"I'm sorry.\"" },
+    { text: "They moved quietly, Mark too busy thinking of what to say to say anything. Every door they passed held the same poster saying ‘Smile. You’re alive.’ There was a happy yellow face in the middle of each. Many of the rooms behind those doors were loud." },
+    { text: "I uh… You’re very good at your job. What other jobs are you good at? No. Fuck that. Fuck you." },
+    { text: "The frequency of your ass moving back and forth would be an F sharp. It'd be a pretty low frequency, so humans couldn't hear it. But I can see it. I just wanted to say. No. Fuck that. Fuck you. I'm leaving." },
+    { text: "She responded to his silence, \"Right through this door. The doctor will be with you shortly.\" A white light shined through as the door cracked. It was too bright. He thought he might be dying. He shielded his eyes, and stepped through." },
+    { text: "\"Thank you for coming by today, sir. It was a pleasure to help. I hope your treatment goes well.\" The door slammed; he reached back to grab it in hopes of saying goodbye, but his hand couldn't find a handle." },
+    { text: "His end of the door was flat; he was locked in. Mark spun around, scrambling to make sense of his situation. To the left, his eyes described a curb, to his right, a couple dumpsters. \"Wait… Fuck.\"" },
+    { text: "He shrugged, took a few steps toward the curb, and tripped back onto some comfortable-looking dirt. A head poked itself out of the bag next to him, \"Sorry about that, Bidoof. Hospitals don’t like pets. Allergies or something. Did you hear those people sneezing in the waiting room? That was your fault. That was great. It’s nice out here, isn’t it.\"" },
+    { text: "He didn't ask that like a question. Mark saw interrogation in the animals face. \"I’m sure the doctor will be out any minute. Let’s count leaves.\"" },
+    { text: "It rained. It was driest inside the dumpster. There was a picture of a happy tree on the inside of the lid. Two hours later, the door opened again." },
+    { text: "Out walked a man with long hair in a ponytail and a flat, shiny head. He had glasses that didn't suit him and an undersized football jersey that should have embarrassed him. All of this was contained in a stained, white lab coat. He wore his mess with fabricated confidence." },
+    { text: "His focus progressed from dumpster to pavement to patient. \"I told you not to come in the front. Next time you want to see me, come here. You brought your dog with you?\"" },
+    { text: "\"It's a bidoof.\" \"No it isn't. Did you eat yet today?\" \"No.\"" },
+    { text: "\"Fine. This is my lunch break. You people like fast food. Come with me.\"" },
+    { text: "Behind the stack of tacos, Mark held his spork between his hands, ready to pray if prompted. He remembered how to do that. The doctor had no interest. He began talking as if mid-conversation." },
+    { text: "\"Just to be clear, we didn't take your entire shin. The skin is still there, the veins are too. You probably retain some muscle we didn't quite shave off. The only thing you're really missing is bone.\"" },
+    { text: "\"I know,\" Mark knew. The doctor sprayed salsa out of a packet onto the cap for a paper cup." },
+    { text: "He continued, \"It's a funny story, actually. We were going to see if we could graft them into a small horse, but Chet dropped the parts in his ice cream and some of the fudge kind of seeped into the marrow. We washed them off, but it'd be dangerous to install them on another animal’s body. We ended up just hollowing them out. I decided to turn the fibula into a pencil and Trent had the idea to turn the tibia into an oversized, novelty pencil because he can't think for himself. I had the idea first.\"" },
+    { text: "His agitation focused on Mark. His look wanted something. The silence called Mark to respond, \"What an ass.\"" },
+    { text: "Satisfied, the doctor went on, \"I know, right? The point is, is that unless you want to write on the inside of your kneecap, I won't be able to put your shin back in. And even if you did, we probably wouldn't anyway.\"" },
+    { text: "The shells on Mark’s tacos were starting to get soggy. The doctor wasn't at his best either. \"That makes sense. You're not dumb, right?\" \"Oh.\" Mark was hungry, but he forgot." },
+    { text: "The doctor wiped his face, a thought bringing him to excitement, \"You're lucky you woke up when you did. Your femur would have made a great… uh- well have you been to a baseball game recently?\" \"No.\"" },
+    { text: "He had, actually. That’s where he stole the giant foam hand he used as a pillow. It was comfortable as long as it wasn't saturated. It usually was. The doctor pulled two pens from his breast pocket, holding them like chopsticks. He picked up his tortilla chips with the inkless ends. \"Well, you know those miniature baseball bats that they sell at the souvenir stands?\"" },
+    { text: "\"My kids love them.\" \"I don’t.\" He did. \"It doesn't matter then.\"" },
+    { text: "The doctor did not feel Mark was holding up his end of the conversation. It's not that Mark couldn't talk. It was that he had eaten from behind this restaurant a few days ago, and the memory did not make him feel well. \"Okay.\"" },
+    { text: "\"Are you not going to eat?\" \"In a minute.\"" },
+    { text: "Ungrateful fuck. \"Alright, I have more to say anyway. It’s difficult to get a word in around my colleagues. They’re always going on about their children, or their stocks, or something. You’re not like that. You don’t have any of those things. I feel better around you. I feel like I should like you.\"" },
+    { text: "The doctor expected Mark to appreciate the sentiment. Mark dropped a taco into his bag. Asshole. If compliments won’t make you listen to me, then maybe charity will. \"The point is, Mark, I’m here to help you.\"" },
+    { text: "\"Okay.\" His stomach murmured, and it was difficult to hear anything else. \"I am, Mark.\" He didn't even convince himself. \"Yeah.\"" },
+    { text: "Mark’s mind was trying to remember how sick the beef had made him last time, and whether it was worth dealing with that again. Fuck you, Mark. You’re not my friend, and I don’t need to be friendly. You’re going to pay attention. You owe it. \"No, Mark. I need to know you know I’m here to help you.\"" },
+    { text: "He no longer shielded his contempt. Mark couldn't even notice that. He was remembering the bile in his throat and the look of concern on Bidoof’s face. This taco was fresh though, so maybe he could hold it in. \"Okay.\"" },
+    { text: "\"No. Say that you know.\"" },
+    { text: "Mark did what he was told. He was convinced long ago that what he said didn't matter. \"I know you're here to help me.\"" },
+    { text: "\"Good. You can prove it. Do you mind if I try something?\"" },
+    { text: "Mark’s mind drifted back to reality in time to barter. \"Will you buy me another taco?\" \"Yeah, yeah.\" \"Then fine.\"" },
+    { text: "\"Thanks, Mike\" Food. \"It’s Mitch.\"" },
+    { text: "The doctor’s face looked far more sinister than it had before Mark drifted off. He couldn't tell if he remembered it wrong from before or if he was imagining it now. He did what he usually did when he saw evil. He pretended it wasn't there." },
+    { text: "The doctor asserted, \"I need to examine your leg before I can figure out how to proceed. This could go wrong in a lot of ways, some of them very bad. Stick your leg out and grab the table.\"" },
+    { text: "Mark hesitated. \"Okay…\" \"Harder. Strangle it.\"" },
+    { text: "The doctor waited for the employee behind the registered to walk out of sight. He grabbed Mark’s left wrist, “hold still,” and forced the back of his pen into the top of Mark’s cast. Mark recoiled and held his tongue between his teeth." },
+    { text: "The doctor smiled. \"Does it hurt?\" He could feel the pen using his knee as a lever, tearing the cast away from his skin. A tear formed in Mark’s eye. \"Not really. No.\"" },
+    { text: "\"Good.\" His grin steepened. \"I’m glad. I want you to remember something, Mike. You’d be dead if it weren't for me. You know how much this sucks right now?\"" },
+    { text: "The doctor tore out the pen, flipped it, and stabbed it into the tear, scraping past the kneecap and penetrating the skin below. \"It could be a lot worse. Does it hurt now?\"" },
+    { text: "Mark screamed in his head, but breathed “Yes.” His tongue bled." },
+    { text: "The doctor smiled. \"Good. You’ve not started rotting yet. How about…\" The doctor tightened his grip on Mark’s wrist and pulled his chest to the table, the impact cushioned by his dinner. The pen was briefly freed from the top of his calf and then thrust straight through the sodden cast just above the ankle, “now.”" },
+    { text: "He didn't ask it like a question. Mark couldn't protest. It got black fast." },
+    { text: "Mark still wasn't paying attention. \"I’m not going to put up with this shit. Wake up, Mark. Wake the fuck up.\"" },
+    { text: "Mark woke up. He had a new taco. \"I think we both learned things, Max.\"" },
+    { text: "\"How? I mean, yes.\" Minus the missing customers, the restaurant looked the same as before. Mark was not used to waking up in a place he recognized. He was concerned." },
+    { text: "The doctor leaned back in his chair. \"That was probably mean. We do shit like this kind of shit a lot, but you’re the first body I know that still has feeling.\"" },
+    { text: "\"Um.\" Fuck you. \"Shut up. I know I’m supposed to feel bad. Look, you’re the first body I’ve actually gotten to talk to. I kind of feel like if I help you out, I’ll feel less bad about what I’ve done to all the other bodies. You’re going to have to be patient while I figure out how to treat you.\"" },
+    { text: "The doctor had Mark’s attention but not his confidence, \"Okay, but can you please not stab me again? And can you stop calling me a body? It’s creeping me out. I really don’t like what’s happening right now.\"" },
+    { text: "The doctor laughed back, \"My condolences. Force of habit, you know?\" He gestured to Mark’s pet; the doctor had never had a pet before, \"Why do you keep giving your food to it?\"" },
+    { text: "\"He hasn't eaten yet.\" \"Dogs aren't supposed to eat Mexican food.\" \"Bidoofs are.\"" },
+    { text: "This was stupid. Mark was stupid. The doctor strained, \"You know, I’m only feeding one of you.\"" },
+    { text: "\"Then I am too.\" Too stupid. \"I’m tired of you, so I’m going to leave. Meet me at the hospital tonight. I have some ideas.\"" },
+    { text: "Mark dug for hope. \"Do you have my shin?\" \"Not exactly.\"" },
+    { text: "He succeeded in making a hole. \"Then why should I?\" \"A lot of reasons. For me, you’re entertaining, and I want to try some things.\"" },
+    { text: "Mark’s tongue his teeth with the open sore on his tongue. \"I don’t want to. I don’t trust you.\"" },
+    { text: "\"You don’t need to. That’s why I gave you the hospital ID. It’s small-scale blackmail. The hospital would not want to know about what my team does, and you having that card could link me to some troublesome shit. You see, it’s easier for me to help you then it is for me to try to explain what we do to the board. Bone pencils, for instance. If you have that card you can make me do something nice for you even if I don’t want to.\"" },
+    { text: "\"You don’t want to?\" \"I’m not really bothered either way. Also, remember how I stabbed you in the leg?\" \"I do.\"" },
+    { text: "\"If I don't treat that, it’ll get infected and you’ll die.\" \"Oh.\"" },
+    { text: "\"I need to run. I’ll probably see you later, Matt.\" \"It’s Mark. Can I have the rest of your nachos?\"" },
+    { text: "\"Oh. I was almost going to leave them here. Thanks for reminding me.\" The doctor seized his tray as he stood. Mark’s eyes followed the food. \"Alright.\"" },
+    { text: "\"Meet me back by the dumpsters tonight.\" \"Okay.\"" },
+    { text: "Mark watched as the remaining chips were thrown into the trash as the doctor left. He attempted to rescue them but was outpaced by a squirrel." },
+    { text: "Mark knew that if was going to make it back to the hospital by night, he would need to start limping there soon. The napkins shoved into his cast kept the bleeding manageable, but the wound was still going to slow him down. Unfortunately, hitchhiking was dangerous, and the cars looked like monsters." },
+    { text: "After getting out of the restaurant’s sight, Mark let Bidoof off his yarn leash and followed him into a park. They were comfortable there. On clear nights, it was one of the few places he was happy to wake up in." },
+    { text: "Mark sat on a swing, and watched his pet dig through the grass. \"I had a car once, Bidoof. It was pretty cool. I followed all the rules and I never got pulled over. I don’t fuck things up sometimes, you know?\" Mark could have sworn Bidoof nodded. \"Are you hungry?\"" },
+    { text: "Mark could have sworn Bidoof shook his head. \"Good. Then I’m not either.\" The sun was beginning to go down, Mark looked at the small pool of red liquid next to his shoe and swallowed hard. \"Alright, Bidoof. We’re not staying. I’m going back to the hospital. To sleep.\"" },
+    { text: "The pet waddled over to him. \"You want to come with me? Alright. Want to ride in the bag?\" Bidoof walked toward the park’s gate. \"Alright. We’ll walk together then.\"" },
+    { text: "Mark was short on energy. He couldn’t have carried him anyway. It was dark by this time. Mark lay on his back with his leg propped a half inch off the ground on the foam baseball mitt. The headlights roused him up. He couldn’t sit up, only twitch." },
+    { text: "The doctor yelled from the driver side window, \"Are you in pain?\" Mark didn't recognize the voice. \"Yeah. Usually. Shut up. I’m sleeping.\"" },
+    { text: "The doctor stepped out of his car. Mark’s pet growled as the doctor stepped on Mark’s right ankle. \"I mean right now.\"" },
+    { text: "Mark recognized the voice now. He scrambled to sit up, while his arms tried to slap away the shoe. \"Yes. My leg is collapsed and stabbed. It hurts. Get off. Go away. Holy shit. Holy fucking shit.\"" },
+    { text: "That was better. \"You need to remember to pay attention.\" The doctor released the pressure, and stepped back toward his car. \"I don’t keep track of this stuff very well. How long have you had that cast on?\"" },
+    { text: "Mark exhaled, \"6 weeks.\" \"You sound sober, Mark. You didn't have time to get anything to drink on the way back, did you?\" \"Not much.\"" },
+    { text: "\"Good. Alright, well, let me see your mobility. Stand up.\" Mark pulled himself up with the help of the dumpster. This one was friendly enough to have handles. Mark was happy to know it. Great dumpster." },
+    { text: "The doctor could tell his gait was weaker than earlier. \"Good. Now try to run.\" \"I can't.\"" },
+    { text: "\"Try. I need to see how you push off your right foot.\" \"Okay. I’ll do my best.\" Two steps were made. Mark fell." },
+    { text: "The doctor laughed. He laughed a lot longer than he needed to. \"That was great. Thanks. Now, get in the car. I’m going to operate back at my house.\"" },
+    { text: "\"We can’t do it in the hospital?\" \"We probably could.\" The doctor smirked, his eyes looked up in thought. \"It’d be fun to see what I could get away with. I didn't bring my keycard though. Come on.\"" },
+    { text: "The dumpster helped Mark up again. His pet followed. \"You’re taking the dog with you?\" \"It’s a bidoof.\"" },
+    { text: "\"Whatever. Get in the back. Put this blindfold on.\" \"That’s a sock,\" Mark protested as he buckled himself behind the passenger’s seat. \"Just put it on.\"" },
+    { text: "\"Why?\" Mark wondered. \"I don’t want you to remember where I live.\" \"I don’t remember anything.\"" },
+    { text: "The doctor looked in the rearview mirror to see Mark trying to figure out what a knot is. \"I’m going to play it safe.\" \"Does Bidoof need to wear one too?\" \"No.\"" },
+    { text: "A few miles in, Mark’s guts were unhappy. \"I get car sick, you know. Can I ride in the front?\" \"Why didn't you mention this before?\" \"I forgot. I forget the last time I was in a car.\"" },
+    { text: "\"Fine. Climb up. Don’t take your blindfold off.\" \"It’s a sock.\" Mark stayed conscious enough to realize the car had been still for some time. The bag was asleep. The doctor knocked on the windshield. \"Alright, you can take it off now.\"" },
+    { text: "\"What?\" \"Take off the sock, and get out of my car.\" \"Okay.\"" },
+    { text: "Mark noticed there was no stain on the upholstery next to his leg. Either he had stopped bleeding or was running out of stuff to bleed. He decided it better to stop wondering." },
+    { text: "He wobbled after the doctor up the gravel driveway. Bidoof followed. They stepped into a populated garage, and Mark did his best to identify the things around him. The shelves were crowded. Next to a couch, he saw a toaster taped to a skateboard." },
+    { text: "The walls were lined with power tools and medical equipment. Some of it looked like fetish gear. Mark felt more comfortable. \"How do you like my hobby shop?\"" },
+    { text: "\"I really like it. It’s my favorite. Can I get my leg back now?\" \"We’ll start operating soon.\"" },
+    { text: "\"Good. Is everything sterile?\" Mark pushed. He had a dull, vile feeling he was the only one in a hurry. The doctor paused for a minute." },
+    { text: "\"Hm. I don’t see why they wouldn’t be. Take your clothes off and sit in the chair.\" Mark hesitated." },
+    { text: "\"At your own pace. I need to ask you a couple things before we get started. Keep in mind, if you don't answer truthfully you might die. Also, if you don't do this, you’re going to die anyway. Are you allergic to anything?\" \"No.\"" },
+    { text: "\"Have you eaten anything today?\" \"No.\" The doctor laughed. \"Yeah. I know. Have you had anything to drink in the last 6 hours?\" \"Yes.\"" },
+    { text: "\"Was it water?\" \"It was mostly alcohol which is mostly water, so I guess.\"" },
+    { text: "The doctor looked like he wanted to look surprised. \"Great. This means I can’t give you anesthesia.\" \"Why not?\"" },
+    { text: "\"Because you’ll die.\" The doctor liked this phrase. Mark thought he must have had practice with it. \"I have an idea though, Mike. I’m going to give you these painkillers, you’re going to get drunk, and I’ll operate when you’re passed out.\"" },
+    { text: "\"That doesn't sound safer.\" \"It’ll be more fun though. What do you drink?\"" },
+    { text: "This was unfair and tempting and dangerous. Mark tried to hold his head straight, \"My leg is bleeding. Doesn't alcohol make you bleed faster?\" \"Why does that matter?\" \"Because I’ll die.\"" },
+    { text: "The doctor assured, \"I won’t let that happen. Lack of blood means is you’ll get drunk quicker. So, what do you drink.\" Mark gave up. \"Um, whatever I have enough money to buy.\" \"Everything’s free.\" \"Then everything.\"" },
+    { text: "Mark woke to find himself nearly naked, strapped to a chair. His eyes ran across the entire room. Luckily Bidoof was asleep. That would have been embarrassing. Bidoof shouldn't have to see him like this." },
+    { text: "The doctor was lying across a couch watching infomercials; he looked back to see what the noise was. \"Oh good, you’re up. How does your body feel?\"" },
+    { text: "\"It’s dizzy.\" Mark caught himself. \"I mean, I’m dizzy.\" \"You’re drunk.\"" },
+    { text: "The doctor returned his attention to the TV. \"I see you still have your trainee lines.\" Mark agreed he was drunk, but he was still confused. \"I have my what?\"" },
+    { text: "\"Your trainee lines. Those dashed lines on your chest. They’re a guide for our interns to practice autopsies. Kind of like connect the dots. It’s fun.\"" },
+    { text: "Mark tried to extricate a hand from the straps, but only succeeded in chafing the back of his wrist. \"That’s what those are? They won’t come off.\"" },
+    { text: "With a grunt, the doctor detached himself from the couch and walked back toward his patient. \"Well, we tattoo them on some people because we don’t know how long it’s going to be until we work. Sometimes we have a surplus and we need to keep some bodies in the freezer. If you use marker, it’ll just wash off when one of you thaw out.\"" },
+    { text: "Mark froze. \"I was in a freezer?\" \"For a few days, I think, yeah. That’s why it was so weird that you woke up. Anyways, you want me to get them off? I have a laser.\"" },
+    { text: "No fucking way. No more operations. \"No, I… I uh… I want them.\" \"Why?\" \"To remind me of something.\" \"Of what?\" \"I don’t remember.\"" },
+    { text: "\"Whatever.\" The doctor knelt down, and undid the strap around Mark’s left leg. \"Alright, stick out your leg. Good. You can move it. Are you in any pain?\"" },
+    { text: "\"I uh… no…\" Mark didn't feel anything, but he was quick to notice that his leg was a shiny shade of black. It didn't look like a cast, but it didn't look like a prosthesis either. \"How about now?\"" },
+    { text: "The doctor kicked Mark in the knee. Mark noticed an on reverberation. \"Hey you fuc-... Wait... My shin doesn’t hurt.\"" },
+    { text: "\"You don’t have one.\" The doctor laughed. \"You’re right.\" Wait. \"Hold on. I thought you were going to give me one.\"" },
+    { text: "\"I gave you something better.\" The doctor stopped trying to hide his pride. \"Put your leg down. I’ll show you.\" The doctor unlatched something near Mark’s ankle, and the front of his calf swung open. \"Ta-da!\"" },
+    { text: "Mark took a moment to digest the situation before- \"What the fuck!?\" The doctor beamed, \"I upgraded you.\"" },
+    { text: "\"No you- what the fuck is that!?\" Mark struggled against his straps again. He learned why they were still engaged after the operation." },
+    { text: "The doctor spoke to him like a child. \"Calm down. It’s a thermos. I was looking around my garage for stuff that was calf-sized, and I saw this and thought ‘this is perfect.’ I had to put in a bit of extra work to make it open from the side instead of the top, but I think it was worth it.\"" },
+    { text: "Mark’s mouth hung open and his eyes screamed. \"I can tell you’re not convinced. I’ll be honest, I don’t care if you are, but look: it’s water tight, it retains heat and cold, it’s lighter than a regular leg, it can fit a change of clothes, hell you could wash your clothes in there if you add some detergent and walk around for a bit.\"" },
+    { text: "\"There is absolutely nothing about this that isn’t an improvement on what you used to have. Besides, if you don’t like the color, we can paint you.\"" },
+    { text: "Mark couldn't tell if he was being convinced or if he was too drunk to protest. \"Why couldn't you just give me a prosthetic?\"" },
+    { text: "\"Why would I have prosthetics laying around? Look, this was my good thermos. I’m going to need you to be more grateful.\"" },
+    { text: "Nothing made sense to Mark. It usually didn't, so that was fine, but still. \"Why would I be grateful to have a fucking thermos in my leg.\"" },
+    { text: "”Convenience, Mark. Hold on a second.” The doctor walked to a set of cabinets, and began grabbing various items from the shelves. \"Look, I’ll stock you up. You can have all this.\"" },
+    { text: "The doctor’s pride was leaking into generosity. He threw a Scott Steiner t-shirt, a few bags of fruit snacks, a pint of vodka, a bar of soap, and two bottles of pills into the hatch before fastening it again. \"See? Look how much storage you have.\"" },
+    { text: "Mark told himself that if he wasn't strapped into this chair, he would get up and strangle this motherfucker. He’d leg drop him with the thermos. Mark didn't realize that if he weren't strapped in, he’d be too scared to do anything. He didn't realize he was happier in the chair." },
+    { text: "\"I’m going to let you out.\" Well, shit. \"I’m going to take these straps off so I can see if you still work.\"" },
+    { text: "Mark prepared himself to plant his right foot and drive the thermos directly into the doctor’s taint. He pushed himself up out of the chair but was unable to stop his momentum and broke his fall with his face." },
+    { text: "The doctor laughed. \"Easy, killer. Don’t stand up too fast. Those painkillers are not supposed to be taken with alcohol.\"" },
+    { text: "Mark scrambled for balance. \"You made me!\" \"I did. I figured if you were mad when you woke up, it’d be best to make sure you couldn't do anything irresponsible.\"" },
+    { text: "Mark pulled himself up with the help of desk. He flailed his arm to see if he was capable of keeping the necessary equilibrium to land a punch. He nearly tripped and decided he was going to have to beat the doctor up with mean looks and sarcasm." },
+    { text: "But as he stepped forward from the desk, he realized there was no pain. No limp. The look on Mark’s face already explained, but the doctor asked anyway, “How does it feel?”" },
+    { text: "“Um…” Mark wanted to be angry at the guy who stole his leg and replaced it with camping equipment, but this was the first time he could walk normally in weeks. He tried to remind himself that this was horrible and the guy who did this was horrible, but Mark liked walking." },
+    { text: "Mark had a long history with walking. He couldn't be angry with the guy who let him do it again. This made him angry. \"Good. Now try running.\"" },
+    { text: "Walking was fine. Running was an issue. He crashed into a wall. \"Alright. No running, Mark.\"" },
+    { text: "Mark pulled himself back up, and shifted weight from one leg to the other, searching for a position that caused him pain. He couldn't find one." },
+    { text: "The doctor stood and beamed in front of his construction. “Mark, you are always going to be a reminder of my talent.” Mark kept his head down. He didn't have the energy or commitment to protest. He had been worse things." },
+    { text: "Mark began hopping back and forth from one leg to the other. The doctor went on, “A few things you should know. One- make sure you lock the hatch or everything will fall out. That should be obvious, but I don’t know what’s obvious to you.\"" },
+    { text: "“Two- that thermos cannot support much more than your body weight, so don’t do anything stupid with it. I might want it back. Three- the veins and the rest of your nerves are running down the back. I have them encased in the skin you had left, but you know. Be careful.”" },
+    { text: "The hopping stopped. Mark glanced to the back of his left calf to see a thin, white line going from the back of his knee to his ankle. He knew the answer but still asked. “Aren’t they kind of exposed?”" },
+    { text: "“They are. So be careful.” Matt poked the blue vein in the middle. “Well, can’t you do something about it?”" },
+    { text: "This asshole hasn't even thanked me yet. “Fine. I have an idea.” The doctor moped to a plastic bin, and came back with a piece of round plastic with straps. “Here. It’s a shin guard.\"" },
+    { text: "“I used to play indoor soccer. Actually, it’s a funny story. The medical school had their own league, and each year had a team. I thought I was going to be forward, but I ended up playing goalie, so my shinguards didn't get hit much. They’re in pretty good shape. If you strap it around the back, you’ll probably be fine.”" },
+    { text: "Mark didn't think it was funny. “Thank you.” About time. “So, what are you giving me in return?”" },
+    { text: "Mark pretended not to hear him and strapped the gear around the back of his left leg. “It’s fine, Mark. I’ll think of something later.” The doctor wandered back to the couch to learn about a blender not sold in stores." },
+    { text: "Mark found his clothes, and began to pack up. I don’t like this. I’m getting out of here. Hey, me. Listen. Get us out." },
+    { text: "Bidoof was still asleep. Mark picked him up and prepared to leave. The alcohol was catching up, he needed to lie down, and he sure as fuck was not going to be willfully unconscious around this doctor again. “I’m going, doctor. I uh…just… you know… Thanks. Bye.”" },
+    { text: "“Yeah.” The doctor struggled up, and stepped around the couch. He admired his installation one more time before his eyes landed on the pet in Mark’s arms. “Hold on a minute. Before you go, how much do you want for that thing?”" },
+    { text: "The doctor walked toward the fleeing pair, pulled out his wallet, and began counting out five twenty-dollar bills. He quickened his pace as Mark slid toward the door. “I’m not selling him. Goodbye”" },
+    { text: "The doctor caught up, blocking Mark’s path outside and counting another two twenties. “It’s going to kill you, you know. You take better care of it than you do yourself.” He held the door shut with his foot extended the bills into Mark’s face." },
+    { text: "Mark shoved the money away. “He’s not for sale.” This isn’t a negotiation. Get out." },
+    { text: "The doctor pulled out one final offer. “Two hundred dollars. I’ll take better care of him than I did you too. I promise.”" },
+    { text: "If Mark had ever said anything with confidence, this was it. “No. I’m not selling him. He’s not mine.” The doctor halted his pursuit for a time. “Well fine, just take the money anyway. I never paid you for the pencils.”" },
+    { text: "Mark felt for an opening. “Keep the money. I want my leg back.” What are you doing? \"I gave you a new one. It was a fair deal.\" \"I don’t care. Take the money back and give me those pencil things.\"" },
+    { text: "The doctor scoffed. “Two hundred dollars for an original set? That’s not nearly enough.” \"What?\"" },
+    { text: "This was beginning to be insulting. “Forget it, Mark. I already bought you tacos, and gave you my shinguards and thermos. I’ll be honest, I’d expect you to be a bit less needy.” Now is not the time for this." },
+    { text: "Mark felt himself fall out of control. “It’s Max. And they’re mine.” “It’s Mark. And to clarify, the base material was, at one point, yours, but the lead and the eraser are mine. Not to mention the craftsmanship-”" },
+    { text: "“All you did was hollow them out and stick on an eraser!” Stop it. Just fucking stop. Get. OUT." },
+    { text: "The doctor spit as he retorted, “First of all, Trent did one of them. Second of all, don’t you dare undervalue my art. Do you know how much money I could get for these things at medical conventions? This is a legitimate craft, and you will not speak of it like this.”" },
+    { text: "He reared back, and kicked Mark in the leg. Mark stumbled back a bit, paused a moment, then laughed. There was no pain. He was drunk at the notion of a moment with no negative consequences. And just drunk. “That doesn't hurt any more, remember? And I don’t care what your craft is. That was part of me. I want that part back.”" },
+    { text: "“Fine.” The doctor was more annoyed than convinced. His collection was wide enough already, and he trusted he would find a way to fill this gap soon. “You can have the small one.” \"Mark pushed, “I want them both.”" },
+    { text: "The doctor pushed back, “I will stab you again.” If you’re not going to trust your head, maybe you’ll listen to something else. Mark reached for another word, but before he could pull one out, his stomach churned." },
+    { text: "He bent over and attempted to balance the acid in his gut. It was probably best to stop. For now. No. Forever. The doctor walked back to his cabinets. He extracted a keychain from his pocket, and attempted to unlock the stocky, wooden one at the end of the room." },
+    { text: "Each key looked the same. The doctor muttered to himself as he went through the process of elimination. The adrenaline washed out of Mark’s body as he waited. Over time the nausea flooded back, leaving him with a noticeable tremor." },
+    { text: "Bidoof woke up. Mark looked to him for comfort. The doctor returned, holding a long white cylinder in front of Mark’s face. “Does this look like yours?” \"I-“" },
+    { text: "“Fuck. How would you know. You’ve never seen your fibula outside of your leg. This is it. Take it.” Mark reached for the pencil, put it in his pocket, and turned to leave in silence." },
+    { text: "Any excess motion was liable to make him sick. That included talking, blinking, and breathing. The doctor grabbed his shoulder, took the pencil out, and insisted, “Come on, Mark, try out your new feature.”" },
+    { text: "Mark looked at the pencil, at the doctor, then to his leg before losing focus on anything. “Fine, I’ll do it for you.” The doctor bent down to open the hatch, and noticed the two bottles of pills. His eyes widened. “I almost forgot to tell you.”" },
+    { text: "He held up a tall white bottle with blue text. “This bottle is your painkillers. You’re going to need them to not cry to death and to keep your body from rejecting the thermos.”" },
+    { text: "He threw the first bottle in and picked up a tiny blue bottle with red text and a black cap. “And when you run out of the painkillers, start taking the stuff in this bottle. It might straighten you out a bit. We’ll see. But Mark, as your doctor, I am warning you not take them together.”" },
+    { text: "The doctor tossed the pencil in and fastened the hatch. That was important. Did you catch that? Mark tried to nod. “Bye.”" },
+    { text: "“Wait, what about a sharpener?” Mark was struggling. “Huh?” “That pencil is made of bone. It’s not going to work in a regular sharpener. Here.”" },
+    { text: "He pulled a metal block from a drawer. “I made this too. Let’s say… I dunno… we trade the tip of your left thumb for it? I’ll even install it for you.”" },
+    { text: "You will not to owe this guy anything else. “I’m going to throw up.” \"Get out.\"" }
+  ]
+};
+</file>
+
+<file path="src/data/index.js">
+// 1. Import Blogs ONLY
+import { knicksGrok } from './knicksGrok';
+import { creativeProcess } from './creativeProcess';
+import { pamageLog } from './pamageLog';
+
+// 2. Create a master array for BLOGS ONLY
+export const allPosts = [
+  knicksGrok,
+  creativeProcess,
+  pamageLog
+].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+// 3. Helper: Get latest blog
+export const getLatestByCategory = (cat) => {
+  const filtered = allPosts.filter(
+    p => p.category?.toLowerCase() === cat.toLowerCase()
+  );
+  // Return the last item if it exists, otherwise return null
+  return filtered.length > 0 ? filtered[filtered.length - 1] : null;
+};
+</file>
+
+<file path="src/data/knicksGrok.js">
+export const knicksGrok = {
+  slug: "knicks",
+  title: "Hard to believe it's only been six years",
+  date: "2024-05-27",
+  category: "Basketball",
+  body: [
+    {
+      text: "What's the highest number James Dolan can count to? I've called him every day for the past 3,419 days to ask him if he can count as high as as many days that is and today he finally said, 'No, Mat. I don't think so.' Big day for me.",
+      note: "Mike Brown has two iphones and one that he keeps in his back pocket so he can scream at his own ass."
+    },
+    {
+      text: "It's wild that no one has thrown a drink at a basketball player in a while. Last time was so fun!",
+      note: ""
+    },
+    {
+      text: "Give me $5000.",
+      note: "Give me $5000."
+    }
+  ]
+};
+</file>
+
+<file path="src/data/libraryData.js">
+import { beachStory } from './beachStory';
+import { detachment } from './detachment';
+import { recorded } from './recorded';
+
+export const libraryData = [
+  beachStory,
+  detachment,
+  recorded
+];
+</file>
+
+<file path="src/data/pamageLog.js">
+export const pamageLog = {
+  slug: "pamage-placeholder",
+  title: "The weird pond",
+  date: "2024-05-27",
+  category: "Pamage",
+  body: [
+    {
+      text: "Ate a duck today. Whole. Raw.",
+      note: "Two ducks are smaller than one."
+    },
+    {
+      text: "There are fourteen different types of sky. Collect them all!",
+      note: ""
+    }
+  ]
+};
+</file>
+
+<file path="src/data/recorded.js">
+export const recorded = {
+  id: "recorded",
+  slug: "recorded",
+  title: "Recorded", // Replace with actual title
+  tagline: "It happened enough, I guess.",
+  description: "A look into where I pictured my future at one point in the past.",
+  year: "2010ish?",
+  body: [
+    {text: "You can be seen, just don't be perceived.", note: "halp"}
+  ],
+};
+</file>
+
+<file path="src/data/storyList.js">
+export const storyList = [
+  {
+    id: "story-one",
+    title: "The First Story",
+    tagline: "A brief descent into the unknown.",
+    description: "A longer summary of what this story is about, providing context for the reader before they dive in.",
+    content: "The actual full text of your first story goes here..."
+  },
+  {
+    id: "story-two",
+    title: "The Second Story",
+    tagline: "A lateral shift in perspective.",
+    description: "Detailed description of the themes or setting of the second story.",
+    content: "The actual full text of your second story goes here..."
+  },
+  {
+    id: "story-three",
+    title: "The Third Story",
+    tagline: "The final observation.",
+    description: "Detailed description of the third piece of writing.",
+    content: "The actual full text of your third story goes here..."
+  }
+];
+</file>
+
+<file path="src/data/videoList.js">
+// src/data/videoList.js
+export const videoList = [
+  {
+    id: "XWLom5LUZN4",
+    title: "New York Knicks Tom Thibodeau Doom Mod",
+    description: "Tom is Rocket. I don't get it either.",
+    date: "2024-01-15"
+  },
+  {
+    id: "8FsBHUXWefI",
+    title: "Another Dumb Infomercial Product",
+    description: "A revolutionary dual egg-containment and heat-distribution unit.",
+    date: "2024-02-10"
+  },
+  {
+    id: "dFe7IMGngEA",
+    title: "KK Africa",
+    description: "First of an 'album' of KK Slider covers Briggy and I did for our Tropical Meow channel.",
+    date: "2024-03-01"
+  }
+];
+</file>
+
+<file path="src/index.css">
+/* --- THE PERFECTED THEME VARIABLES --- */
+:root {
+  --color-pink-light: #FFB6C1;
+  --color-yellow-bright: #FFEE58;
+  --color-pink-hot: #FF1493;
+  --color-purple-retro: #4B0082;
+  --color-orange: #FF8C00;
+  
+  --bg-sidebar: var(--color-purple-retro);
+  --text-main: #1A1A1A;
+  --text-sidebar: #FFFFFF;
+}
+
+/* --- RESET & BASE --- */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-yellow-bright);
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* --- SIDEBAR (Now Fixed) --- */
+.sidebar {
+  width: 250px;
+  background-color: var(--bg-sidebar);
+  color: var(--text-sidebar);
+  padding: 20px;
+  /* FIXED POSITIONING LOGIC */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto; /* Just in case your link list gets very long */
+  z-index: 100;
+  border-right: 8px solid var(--color-pink-hot);
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  color: var(--color-yellow-bright);
+  text-shadow: 2px 2px 0px var(--color-pink-hot);
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  color: var(--color-yellow-bright) !important;
+  text-shadow: 0px 0px 8px var(--color-pink-hot);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* --- MAIN CONTENT (Adjusted for Fixed Sidebar) --- */
+.main-content {
+  flex-grow: 1;
+  margin-left: 250px; /* This prevents content from hiding behind the sidebar */
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom, 
+    var(--color-pink-light) 0%, 
+    var(--color-yellow-bright) 100%
+  );
+  background-attachment: fixed; 
+  background-size: cover;
+  color: var(--text-main);
+  padding: 40px;
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px dashed var(--color-orange);
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- HOME PAGE HOVER EFFECTS --- */
+.home-container a {
+  display: block;
+  text-decoration: none;
+}
+
+.home-container a:hover .content-card {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* --- FOOTNOTES & SEGMENTS --- */
+.post-segment {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 40px;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+
+.footnote {
+  font-size: 0.8rem;
+  color: var(--color-purple-retro);
+  border-left: 2px solid rgba(157, 80, 187, 0.3);
+  padding-left: 10px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.friend-card-link {
+  transition: transform 0.3s ease;
+}
+
+.friend-card-link:hover {
+  transform: rotate(0deg) translateY(-12px) scale(1.02) !important;
+  z-index: 10;
+}
+
+.friend-card-link:hover .friend-card {
+  box-shadow: 0px 20px 40px rgba(75, 0, 130, 0.3);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: var(--color-pink-hot) !important;
+}
+
+.social-card-link:hover .social-card {
+  background-color: rgba(157, 80, 187, 0.05) !important; 
+  border-color: var(--color-purple-retro) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.social-card-link:hover h3 {
+  color: var(--color-orange) !important; 
+}
+
+.video-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--color-orange) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TWITCH LIGHTS (Preserved) --- */
+.status-light-offline {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #555;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  display: inline-block;
+}
+
+.status-light-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+  display: inline-block;
+  animation: pulse-red 1.5s infinite;
+}
+
+.contribute-btn:hover {
+  background-color: var(--color-pink-hot) !important;
+  color: black !important;
+  box-shadow: 0 0 10px var(--color-pink-hot);
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 0, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* Responsive Chat Hiding */
+@media (max-width: 900px) {
+  .chat-container {
+    display: none;
+  }
+  .twitch-page-wrapper div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --- MOBILE RESPONSIVENESS (Resetting Fixed Sidebar) --- */
+@media (max-width: 768px) {
+  .app-container { 
+    flex-direction: column !important;
+  }
+
+  .sidebar {
+    position: relative !important; /* Unlocks the sidebar so it stacks on mobile */
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    border-right: none !important;
+    border-bottom: 8px solid var(--color-pink-hot);
+    padding: 15px;
+  }
+
+  .main-content {
+    margin-left: 0 !important; /* Removes the margin so content spans the screen */
+    width: 100% !important;
+    padding: 15px !important;
+  }
+  
+  /* Keeping your existing mobile overrides below */
+  .sidebar h1 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .sidebar li {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+
+  .post-segment {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .footnote {
+    border-left: none;
+    border-top: 1px solid rgba(157, 80, 187, 0.3);
+    padding: 5px 0 10px 0;
+  }
+}
+</file>
+
+<file path="src/main.jsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path="src/pages/Basketball.jsx">
+export default function Basketball() {
+  return (
+    <div className="content-card">
+      <h2>Baksetball</h2>
+      <p>basketball is played in the sky.</p>
+      <p>pigeons cant dribble but holy shit, you know?.</p>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Blog.jsx">
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { allPosts } from '../data/index'; // Adjust path if your data is elsewhere
+
+export default function Blog({ category, title, description }) {
+  // Filter posts to only show the ones for this specific page
+  const filteredPosts = allPosts.filter(
+    post => post.category.toLowerCase() === category.toLowerCase()
+  );
+
+  return (
+    <div className="blog-page">
+      {/* PAGE HEADER */}
+      <div style={{ 
+        padding: '20px 0', 
+        marginBottom: '40px', 
+        borderBottom: '2px dashed var(--color-orange)' 
+      }}>
+        <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>
+          {title}
+        </h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
+          {description}
+        </p>
+      </div>
+
+      {/* POST LIST */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((post) => (
+            <Link to={`/post/${post.slug}`} key={post.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <div className="content-card" style={{ maxWidth: 'none', transition: '0.2s' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div>
+                    <h3 style={{ margin: '0 0 10px 0', color: 'var(--color-purple-retro)' }}>
+                      {post.title}
+                    </h3>
+                    <p style={{ margin: 0, opacity: 0.8, fontSize: '0.95rem' }}>
+                      {post.excerpt}
+                    </p>
+                  </div>
+                  <span style={{ 
+                    fontSize: '0.8rem', 
+                    fontWeight: 'bold', 
+                    color: 'var(--color-pink-hot)',
+                    whiteSpace: 'nowrap',
+                    marginLeft: '20px'
+                  }}>
+                    {post.date}
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <div className="content-card">
+            <p>No transmissions found in this sector yet.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Friends.jsx">
+import React from 'react';
+
+export default function Friends() {
+  const friends = [
+    {
+      name: "Tiger",
+      link: "https://linktr.ee/tigerrawr38",
+      description: "My beautiful partner making beautiful things.",
+      tag: "Artist",
+      image: "/images/tiger-avatar.jpg" 
+    },
+    {
+      name: "Friend Name 2",
+      link: "https://youtube.com/example",
+      description: "Another description here. Keeping it personal makes the community feel real.",
+      tag: "Musician",
+      image: "" 
+    },
+    // ... add more friends here
+  ];
+
+  // HELPER: Generates a random number between -1.5 and 1.5
+  const getRandomRotation = () => (Math.random() * 3 - 1.5).toFixed(2);
+
+  const lightPurple = '#9D50BB';
+
+  return (
+    <div className="friends-page-wrapper">
+      <div style={{ padding: '20px 0', marginBottom: '30px', borderBottom: '2px dashed var(--color-orange)' }}>
+        <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>Friends' Corner</h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>Shout-outs to the people making cool things.</p>
+      </div>
+
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+        gap: '40px', // Increased gap to allow for the rotation overlap
+        padding: '20px' // Padding so the tilts don't hit the screen edge
+      }}>
+        {friends.map((friend, index) => {
+          // Calculate a unique rotation for THIS specific card
+          const rotation = getRandomRotation();
+          
+          return (
+            <a 
+              key={index} 
+              href={friend.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit',
+                display: 'block',
+                transform: `rotate(${rotation}deg)` // APPLIES THE RANDOM TILT
+              }}
+              className="friend-card-link"
+            >
+              <div className="content-card friend-card" style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                border: `2px solid ${lightPurple}`,
+                transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Added a "springy" snap effect
+                padding: '0',
+                overflow: 'hidden',
+                maxWidth: 'none'
+              }}>
+                
+                {/* IMAGE SECTION */}
+                <div style={{ 
+                  width: '100%', 
+                  height: '180px', 
+                  backgroundColor: 'var(--color-pink-light)',
+                  overflow: 'hidden',
+                  borderBottom: `2px solid ${lightPurple}`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  {friend.image ? (
+                    <img 
+                      src={friend.image} 
+                      alt={friend.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                    />
+                  ) : (
+                    <span style={{ fontSize: '3rem', opacity: 0.3 }}>?</span>
+                  )}
+                </div>
+
+                {/* TEXT CONTENT SECTION */}
+                <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                    <h3 style={{ margin: 0, color: 'var(--color-purple-retro)' }}>{friend.name}</h3>
+                    <span style={{ 
+                      fontSize: '0.6rem', 
+                      backgroundColor: 'var(--color-pink-hot)', 
+                      color: 'white', 
+                      padding: '3px 6px', 
+                      borderRadius: '4px',
+                      fontWeight: 'bold'
+                    }}>
+                      {friend.tag}
+                    </span>
+                  </div>
+                  
+                  <p style={{ fontSize: '0.9rem', lineHeight: '1.4', margin: '0 0 15px 0', flexGrow: 1 }}>
+                    {friend.description}
+                  </p>
+
+                  <div style={{ fontSize: '0.8rem', fontWeight: 'bold', color: lightPurple, textAlign: 'right' }}>
+                    View Work ↗
+                  </div>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Home.jsx">
+import React from 'react';
+import { Link } from 'react-router-dom';
+// 1. Import the helper from your central data hub
+import { allPosts, getLatestByCategory } from '../data/index'; 
+import { beachStory } from '../data/beachStory'; 
+import { videoList } from '../data/videoList';
+import { musicList } from '../data/musicList';
+
+export default function Home() {
+  // 2. Use the central helper instead of writing a new one here
+  const latestHoops = getLatestByCategory('Basketball');
+  const latestPersonal = getLatestByCategory('Personal');
+  const latestPamage = getLatestByCategory('Pamage');
+  
+  const latestVideo = videoList[videoList.length - 1];
+  const latestMusic = musicList[musicList.length - 1];
+
+  return (
+    <div className="home-container" style={{ maxWidth: '100%' }}>
+      {/* HERO SECTION */}
+      <div style={{ 
+        padding: '20px 0', 
+        marginBottom: '30px', 
+        borderBottom: '2px dashed var(--color-orange)' 
+      }}>
+        <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>
+          Monta World Peace Dot Com
+        </h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
+          Kinda like if anything new happens it will show up here.
+        </p>
+      </div>
+
+      {/* MAIN NAVIGATION GRID */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
+        gap: '20px',
+        marginBottom: '40px'
+      }}>
+        
+        {/* LATEST BASKETBALL */}
+        {latestHoops && (
+          <Link to={`/post/${latestHoops.slug}`}>
+            <div className="content-card" style={{ border: '2px solid var(--color-pink-hot)', height: '100%', maxWidth: 'none' }}>
+              <h4 style={{ color: 'var(--color-pink-hot)', marginTop: 0 }}>Latest Basketball</h4>
+              <p style={{ fontSize: '0.85rem' }}>{latestHoops.title}</p>
+              <span style={{ fontSize: '0.75rem', opacity: 0.6 }}>{latestHoops.date}</span>
+            </div>
+          </Link>
+        )}
+
+        {/* LATEST PERSONAL */}
+        {latestPersonal && (
+          <Link to={`/post/${latestPersonal.slug}`}>
+            <div className="content-card" style={{ border: '2px solid var(--color-orange)', height: '100%', maxWidth: 'none' }}>
+              <h4 style={{ color: 'var(--color-orange)', marginTop: 0 }}>Latest Personal</h4>
+              <p style={{ fontSize: '0.85rem' }}>{latestPersonal.title}</p>
+              <span style={{ fontSize: '0.75rem', opacity: 0.6 }}>{latestPersonal.date}</span>
+            </div>
+          </Link>
+        )}
+
+        {/* LATEST PAMAGE */}
+        {latestPamage && (
+          <Link to={`/post/${latestPamage.slug}`}>
+            <div className="content-card" style={{ border: '2px solid var(--color-purple-retro)', height: '100%', maxWidth: 'none' }}>
+              <h4 style={{ color: 'var(--color-purple-retro)', marginTop: 0 }}>Pamage Logs</h4>
+              <p style={{ fontSize: '0.85rem' }}>{latestPamage.title}</p>
+              <span style={{ fontSize: '0.75rem', opacity: 0.6 }}>{latestPamage.date}</span>
+            </div>
+          </Link>
+        )}
+
+        {/* FEATURED STORY */}
+        <Link to="/library">
+          <div className="content-card" style={{ border: '2px solid var(--color-pink-hot)', height: '100%', maxWidth: 'none' }}>
+            <h4 style={{ color: 'var(--color-pink-hot)', marginTop: 0 }}>Library</h4>
+            <p style={{ fontSize: '0.85rem' }}>Featured: {beachStory.title}</p>
+          </div>
+        </Link>
+
+        {/* LATEST VIDEO */}
+        <Link to="/videos">
+          <div className="content-card" style={{ border: '2px solid var(--color-orange)', height: '100%', maxWidth: 'none' }}>
+            <h4 style={{ color: 'var(--color-orange)', marginTop: 0 }}>Video Archives</h4>
+            <p style={{ fontSize: '0.85rem' }}>{latestVideo?.title || "No videos found."}</p>
+          </div>
+        </Link>
+
+        {/* LATEST MUSIC */}
+        <Link to="/music">
+          <div className="content-card" style={{ border: '2px solid var(--color-purple-retro)', height: '100%', maxWidth: 'none' }}>
+            <h4 style={{ color: 'var(--color-purple-retro)', marginTop: 0 }}>Music Repository</h4>
+            <p style={{ fontSize: '0.85rem' }}>Latest: {latestMusic?.title || "No tracks found."}</p>
+            <span style={{ fontSize: '0.75rem', opacity: 0.6 }}>[ Listen on SoundCloud ]</span>
+          </div>
+        </Link>
+      </div>
+
+      {/* SYSTEM STATUS */}
+      <div style={{
+        background: 'rgba(0, 0, 0, 0.05)',
+        padding: '30px',
+        borderRadius: '15px',
+        borderLeft: '8px solid var(--color-purple-retro)',
+        marginTop: '60px'
+      }}>
+        <h4 style={{ margin: '0 0 10px 0', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-purple-retro)' }}>
+          [ SYSTEM_STATUS ]
+        </h4>
+        <p style={{ margin: 0, fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
+          {`> Shit's happening I dunno`}<br/>
+          {`> I don;t know`}<br/>
+          {`> Status: Status levels static.`}
+        </p>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Library.jsx">
+import React from 'react';
+import { Link } from 'react-router-dom';
+// Import your specific story files
+import { beachStory } from '../data/beachStory';
+import { detachment } from '../data/detachment';
+import { recorded } from '../data/recorded';
+
+export default function Library() {
+  // Simple list using the objects directly
+  const storyList = [beachStory, detachment, recorded];
+
+  return (
+    <div className="content-card">
+      <h2 style={{ borderBottom: '2px solid var(--color-orange)', color: 'var(--color-purple-retro)' }}>
+        The Library
+      </h2>
+      <p style={{ marginBottom: '30px', opacity: 0.8 }}>
+        Completed stories and long-form prose.
+      </p>
+
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+        gap: '20px' 
+      }}>
+        {storyList.map((story) => (
+          <div key={story.slug} style={{ 
+            border: '2px solid var(--color-purple-retro)', 
+            padding: '25px', 
+            borderRadius: '15px',
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+          }}>
+            <div>
+              <h3 style={{ color: 'var(--color-purple-retro)', marginTop: 0, marginBottom: '5px' }}>
+                {story.title}
+              </h3>
+              
+              <p style={{ 
+                fontStyle: 'italic', 
+                color: 'var(--color-orange)', 
+                fontSize: '0.85rem', 
+                marginBottom: '10px' 
+              }}>
+                {story.tagline}
+              </p>
+
+              <p style={{ fontSize: '0.9rem', marginBottom: '20px', lineHeight: '1.4' }}>
+                {story.description}
+              </p>
+            </div>
+            
+            {/* REAL NAVIGATION LINK */}
+            <Link 
+              to={`/post/${story.slug}`} 
+              style={{ 
+                background: 'var(--color-purple-retro)', 
+                color: 'white', 
+                padding: '12px', 
+                textAlign: 'center',
+                textDecoration: 'none',
+                borderRadius: '6px',
+                fontWeight: 'bold',
+                display: 'block'
+              }}
+            >
+              Read Story
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/MessageBoard.jsx">
+
+</file>
+
+<file path="src/pages/Music.jsx">
+import React from 'react';
+import { musicList } from '../data/musicList';
+
+export default function Music() {
+  return (
+    <div className="content-card" style={{ maxWidth: 'none' }}>
+      <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2rem' }}>Music Repository</h2>
+      <p style={{ marginBottom: '30px', opacity: 0.8 }}>
+        Tracks are creative commons and shit I guess. Feel free to use them.
+      </p>
+      
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+        {musicList.map((track) => (
+          <div key={track.id} style={{ 
+            backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+            padding: '20px', 
+            borderRadius: '12px',
+            border: '1px solid rgba(255, 255, 255, 0.3)' 
+          }}>
+            <h3 style={{ marginTop: 0, color: 'var(--color-purple-retro)' }}>{track.title}</h3>
+            <p style={{ fontSize: '0.9rem', marginBottom: '15px' }}>{track.description}</p>
+            <iframe 
+              width="100%" 
+              height="166" 
+              scrolling="no" 
+              frameBorder="no" 
+              allow="autoplay" 
+              src={`https://w.soundcloud.com/player/?url=${encodeURIComponent(track.soundcloudUrl)}&color=%23FFB6C1&auto_play=false&hide_related=true&show_comments=true&show_user=true&show_reposts=false&show_teaser=false`}
+            ></iframe>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Pamage.jsx">
+export default function Pamage() {
+  return (
+    <div className="content-card">
+      <h2>Pamage</h2>
+      <p>This is the third pillar of the Monta World Peace experience.</p>
+      <p>Placeholder for upcoming thoughts, logs, or archives.</p>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Personal.jsx">
+export default function Personal() {
+  return (
+    <div className="content-card">
+      <h2>Personal Blog</h2>
+      <p>Personal is played in the ground.</p>
+      <p>pigeons cant dribble but holy shit, you know?.</p>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/PostDetail.jsx">
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { allPosts } from '../data/index';       
+import { libraryData } from '../data/libraryData'; 
+
+export default function PostDetail() {
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // 1. Find the post
+  const post = allPosts.find(p => p.slug === slug) || libraryData.find(s => s.slug === slug);
+
+  // 2. Scroll tracking logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [slug]); // Reset effect if we switch between posts
+
+  if (!post) {
+    return (
+      <div className="content-card">
+        <h2>404: Transmission Lost</h2>
+        <button onClick={() => navigate('/')}>Return Home</button>
+      </div>
+    );
+  }
+
+  const displayBody = post.body;
+
+  return (
+    <div className="post-detail-wrapper">
+      {/* STICKY PROGRESS BAR */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '4px',
+        background: 'rgba(255, 255, 255, 0.1)',
+        zIndex: 1000
+      }}>
+        <div style={{
+          width: `${scrollProgress}%`,
+          height: '100%',
+          background: 'var(--color-pink-hot)',
+          transition: 'width 0.1s ease-out'
+        }} />
+      </div>
+
+      <button 
+        onClick={() => navigate(-1)} 
+        style={{ background: 'none', border: 'none', color: 'var(--color-purple-retro)', cursor: 'pointer', fontWeight: 'bold', marginBottom: '20px' }}
+      >
+        ← BACK
+      </button>
+
+      <article className="content-card" style={{ maxWidth: '1000px', position: 'relative' }}>
+        <header style={{ marginBottom: '30px', borderBottom: '1px solid rgba(0,0,0,0.1)', paddingBottom: '20px' }}>
+          <span style={{ color: 'var(--color-pink-hot)', fontSize: '0.8rem', fontWeight: 'bold' }}>
+            {post.category || "ARCHIVE"} // {post.date || post.year}
+          </span>
+          <h1 style={{ margin: '10px 0', color: 'var(--color-purple-retro)', fontSize: '2.5rem' }}>
+            {post.title}
+          </h1>
+          {post.tagline && (
+            <p style={{ fontStyle: 'italic', opacity: 0.7, marginTop: '5px' }}>"{post.tagline}"</p>
+          )}
+        </header>
+
+        <section className="post-body">
+          {Array.isArray(displayBody) ? (
+            displayBody.map((seg, index) => (
+              <div key={index} className="post-segment">
+                <div className="main-text">
+                  <p style={{ lineHeight: '1.8', fontSize: '1.1rem', margin: '0 0 1.5rem 0' }}>
+                    {seg.text}
+                  </p>
+                </div>
+                {seg.note && (
+                  <aside className="footnote">
+                    {seg.note}
+                  </aside>
+                )}
+              </div>
+            ))
+          ) : (
+            <p style={{ lineHeight: '1.8', fontSize: '1.1rem' }}>
+              {typeof displayBody === 'string' ? displayBody : "Data format error."}
+            </p>
+          )}
+        </section>
+
+        <footer style={{ marginTop: '40px', paddingTop: '20px', borderTop: '2px dashed var(--color-orange)' }}>
+          <p style={{ fontStyle: 'italic', opacity: 0.7 }}>[ END OF RECORD ]</p>
+        </footer>
+      </article>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Socials.jsx">
+import React from 'react';
+
+export default function Socials() {
+  const socialLinks = [
+    { name: 'Bluesky', url: 'https://bsky.app/profile/montaworldpeace.bsky.social', subtitle: 'The new timeline' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@matrutkowski', subtitle: 'Video archives & groks' },
+    { name: 'Twitch', url: 'https://www.twitch.tv/montaworldpeace', subtitle: 'Live broadcasts' },
+    { name: 'FanSided', url: 'https://fansided.com/author/mattrutkowski/', subtitle: 'Professional output' },
+    { name: 'Tenor GIFs', url: 'https://tenor.com/users/montaworldpeace', subtitle: 'Reaction repository' }
+  ];
+
+  const lightPurple = '#9D50BB';
+
+  return (
+    <div className="socials-page-wrapper">
+      {/* HEADER SECTION */}
+      <div style={{ 
+        padding: '20px 0', 
+        marginBottom: '30px', 
+        borderBottom: '2px dashed var(--color-orange)' 
+      }}>
+        <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>
+          Connect with Monta
+        </h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
+          Follow the movement across the web.
+        </p>
+      </div>
+
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+        gap: '20px' 
+      }}>
+        {socialLinks.map((link) => (
+          <a 
+            key={link.name}
+            href={link.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+            className="social-card-link"
+          >
+            <div style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              padding: '30px',
+              borderRadius: '12px',
+              border: `1.5px solid ${lightPurple}`,
+              textAlign: 'left',
+              transition: 'all 0.2s ease-in-out',
+              backdropFilter: 'blur(4px)',
+            }}
+            className="social-card"
+            >
+              <h3 style={{ margin: '0', color: 'var(--color-purple-retro)', fontSize: '1.3rem' }}>{link.name}</h3>
+              <p style={{ margin: '5px 0 0 0', fontSize: '0.85rem', opacity: 0.5 }}>{link.subtitle}</p>
+              
+              <div style={{ 
+                marginTop: '15px', 
+                fontSize: '0.7rem', 
+                fontWeight: 'bold', 
+                color: lightPurple,
+                opacity: 0.8,
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}>
+                Link Out ↗
+              </div>
+            </div>
+          </a>
+        ))}
+
+        {/* DISCORD CARD */}
+        <div style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.02)',
+          padding: '30px',
+          borderRadius: '12px',
+          border: `1.5px dashed ${lightPurple}`,
+          opacity: 0.8
+        }}>
+          <h3 style={{ margin: '0', color: lightPurple, fontSize: '1.1rem' }}>Discord</h3>
+          <p style={{ margin: '5px 0 0 0', fontWeight: 'bold', fontSize: '0.9rem', color: 'var(--color-purple-retro)' }}>
+            @MontaWorldPeace
+          </p>
+          <span style={{ fontSize: '0.65rem', opacity: 0.4, marginTop: '10px', display: 'block' }}>Direct comms</span>
+        </div>
+
+        {/* MASTODON CARD */}
+        <div style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.02)',
+          padding: '30px',
+          borderRadius: '12px',
+          border: `1.5px dashed ${lightPurple}`,
+          opacity: 0.8
+        }}>
+          <h3 style={{ margin: '0', color: lightPurple, fontSize: '1.1rem' }}>Mastodon</h3>
+          <p style={{ margin: '5px 0 0 0', fontWeight: 'bold', fontSize: '0.85rem', color: 'var(--color-purple-retro)' }}>
+            @MontaWorldPeace
+          </p>
+          <span style={{ fontSize: '0.65rem', opacity: 0.4, marginTop: '5px', display: 'block' }}>on tech.lgbt</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Twitch.jsx">
+import React, { useState, useEffect } from 'react';
+
+export default function Twitch() {
+  const [isLive, setIsLive] = useState(false);
+  const channelName = "montaworldpeace";
+  const lightPurple = '#9D50BB';
+
+  // Your Twitch API Credentials
+  const CLIENT_ID = 'ng012e5xkmsqbhxts7eek6vfgriwwz';
+  const CLIENT_SECRET = 'p4ypeaurjpc56fyoepwgust6jrk784';
+
+  useEffect(() => {
+    async function checkStatus() {
+      try {
+        // 1. Get Access Token
+        const tokenResponse = await fetch(
+          `https://id.twitch.tv/oauth2/token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=client_credentials`,
+          { method: 'POST' }
+        );
+        const tokenData = await tokenResponse.json();
+        const accessToken = tokenData.access_token;
+
+        // 2. Check Stream Status
+        const streamResponse = await fetch(
+          `https://api.twitch.tv/helix/streams?user_login=${channelName}`,
+          {
+            headers: {
+              'Client-ID': CLIENT_ID,
+              'Authorization': `Bearer ${accessToken}`
+            }
+          }
+        );
+        const streamData = await streamResponse.json();
+
+        // 3. Update State (data array is empty if offline)
+        setIsLive(streamData.data && streamData.data.length > 0);
+      } catch (error) {
+        console.error("Twitch API Error:", error);
+      }
+    }
+
+    checkStatus();
+    // Optional: Re-check every 5 minutes
+    const interval = setInterval(checkStatus, 300000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="twitch-page-wrapper">
+      {/* HEADER */}
+      <div style={{ padding: '20px 0', marginBottom: '30px', borderBottom: '2px dashed var(--color-orange)' }}>
+        <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>
+          MontaWorldPeace.Twitch.com/live
+        </h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
+          america.com/incredibledeals/sale
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        
+        {/* PLAYER SECTION */}
+        <div className="content-card" style={{ padding: '10px', backgroundColor: '#000', border: `2px solid ${lightPurple}`, maxWidth: 'none' }}>
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            <iframe
+              src={`https://player.twitch.tv/?channel=${channelName}&parent=${window.location.hostname}`}
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              frameBorder="0"
+              allowFullScreen={true}
+              scrolling="no"
+              title="Twitch Player"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* INFO & CHAT GRID */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '20px', minHeight: '400px' }}>
+          
+          {/* STREAM INFO */}
+          <div className="content-card" style={{ maxWidth: 'none' }}>
+            <h3 style={{ color: 'var(--color-purple-retro)', marginTop: 0 }}>Broadcast Status</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+              {/* Dynamic Status Light */}
+              <div className={isLive ? "status-light-live" : "status-light-offline"}></div> 
+              <span style={{ fontWeight: 'bold', color: isLive ? '#ff0000' : 'inherit', opacity: isLive ? 1 : 0.7 }}>
+                {isLive ? "BROADCAST LIVE" : "SIGNAL LOST / OFFLINE"}
+              </span>
+            </div>
+            <p>I don't know I guess this would be a good thing to make for my page as well for people who may not want to go on Twitch directly. Hi Mom!</p>
+            
+            <a 
+              href={`https://twitch.tv/${channelName}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ 
+                display: 'inline-block', 
+                padding: '10px 20px', 
+                backgroundColor: isLive ? '#ff0000' : lightPurple, 
+                color: 'white', 
+                textDecoration: 'none', 
+                borderRadius: '5px',
+                fontWeight: 'bold',
+                marginTop: '10px',
+                transition: 'background-color 0.3s ease'
+              }}
+            >
+              {isLive ? "Join the Live Chat" : "Follow on Twitch"}
+            </a>
+          </div>
+
+          {/* CHAT EMBED */}
+          <div className="content-card chat-container" style={{ padding: '0', overflow: 'hidden', maxWidth: 'none', border: `2px solid ${lightPurple}` }}>
+            <iframe
+              src={`https://www.twitch.tv/embed/${channelName}/chat?parent=${window.location.hostname}`}
+              height="100%"
+              width="100%"
+              title="Twitch Chat"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Videos.jsx">
+import React from 'react';
+import { videoList } from '../data/videoList';
+
+export default function Videos() {
+  const lightPurple = '#9D50BB';
+
+  return (
+    <div className="videos-page-wrapper">
+      {/* HEADER SECTION - Matches Home & Socials */}
+      <div style={{ 
+        padding: '20px 0', 
+        marginBottom: '30px', 
+        borderBottom: '2px dashed var(--color-orange)' 
+      }}>
+        <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>
+          Video Archives
+        </h2>
+        <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
+          Visual groks and documented transmissions.
+        </p>
+      </div>
+
+      {/* VIDEO GRID */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+        gap: '30px' 
+      }}>
+        {videoList.map((video) => (
+          <div key={video.id} className="content-card video-card" style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.03)',
+            border: `2px solid ${lightPurple}`,
+            borderRadius: '12px',
+            overflow: 'hidden',
+            maxWidth: 'none',
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            {/* RESPONSIVE YOUTUBE EMBED */}
+            <div style={{ 
+              position: 'relative', 
+              paddingBottom: '56.25%', // 16:9 Aspect Ratio
+              height: 0, 
+              overflow: 'hidden',
+              backgroundColor: '#000'
+            }}>
+              <iframe
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  border: 0
+                }}
+                src={`https://www.youtube.com/embed/${video.id}`}
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+
+            {/* VIDEO INFO */}
+            <div style={{ padding: '20px', flexGrow: 1 }}>
+              <h3 style={{ margin: '0', color: 'var(--color-purple-retro)', fontSize: '1.2rem' }}>
+                {video.title}
+              </h3>
+              <p style={{ margin: '10px 0 0 0', fontSize: '0.9rem', lineHeight: '1.4', opacity: 0.8 }}>
+                {video.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="vite.config.js">
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+</file>
+
+<file path="src/App.jsx">
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './index.css';
+
+// Import the pages
+import Home from './pages/Home';
+import Music from './pages/Music';
+import Videos from './pages/Videos';
+import Twitch from './pages/Twitch';
+import Socials from './pages/Socials';
+import Friends from './pages/Friends';
+import Blog from './pages/Blog';
+import Library from './pages/Library';
+import PostDetail from './pages/PostDetail';
+
+function App() {
+  const [isLive, setIsLive] = useState(false);
+  const [showSupport, setShowSupport] = useState(true); // State for dismissible box
+  const channelName = "montaworldpeace";
+  
+  const CLIENT_ID = 'ng012e5xkmsqbhxts7eek6vfgriwwz';
+  const CLIENT_SECRET = 'p4ypeaurjpc56fyoepwgust6jrk784';
+
+  useEffect(() => {
+    async function checkStatus() {
+      try {
+        const tokenResponse = await fetch(
+          `https://id.twitch.tv/oauth2/token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&grant_type=client_credentials`,
+          { method: 'POST' }
+        );
+        const tokenData = await tokenResponse.json();
+        const accessToken = tokenData.access_token;
+
+        const streamResponse = await fetch(
+          `https://api.twitch.tv/helix/streams?user_login=${channelName}`,
+          {
+            headers: {
+              'Client-ID': CLIENT_ID,
+              'Authorization': `Bearer ${accessToken}`
+            }
+          }
+        );
+        const streamData = await streamResponse.json();
+        setIsLive(streamData.data && streamData.data.length > 0);
+      } catch (error) {
+        console.error("Twitch API Error:", error);
+      }
+    }
+
+    checkStatus();
+    const interval = setInterval(checkStatus, 300000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Router>
+      <div className="app-container" style={{ display: 'flex', width: '100%', minHeight: '100vh' }}>
+        
+        {/* STATIC LEFT FRAME */}
+        <nav className="sidebar" style={{ display: 'flex', flexDirection: 'column' }}>
+          <h1>Monta World Peace</h1>
+          <ul style={{ flex: 1 }}>
+            <li><Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link></li>
+            <li><Link to="/basketball" style={{ color: 'white', textDecoration: 'none' }}>Baksetball</Link></li>
+            <li><Link to="/personal" style={{ color: 'white', textDecoration: 'none' }}>Non-Baksetball</Link></li>
+            <li><Link to="/pamage" style={{ color: 'white', textDecoration: 'none' }}>Pamage's Diaries</Link></li>
+            <li><Link to="/library" style={{ color: 'white', textDecoration: 'none' }}>Library</Link></li>
+            <li><Link to="/music" style={{ color: 'white', textDecoration: 'none' }}>Music Repository</Link></li>
+            <li><Link to="/videos" style={{ color: 'white', textDecoration: 'none' }}>Video Archives</Link></li>
+            
+            <li>
+              <Link to="/twitch" style={{ color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                Twitch Stream
+                <span className={isLive ? "status-light-live" : "status-light-offline"}></span>
+              </Link>
+            </li>
+
+            <li><Link to="/socials" style={{ color: 'white', textDecoration: 'none' }}>Social Links</Link></li>
+            <li><Link to="/friends" style={{ color: 'white', textDecoration: 'none' }}>Friends' Corner</Link></li>
+
+            <li>
+              <a 
+                href="https://www.clippings.me/montaworldpeace" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'white', textDecoration: 'none' }}
+                >
+                Portfolio ↗
+              </a>
+            </li>
+
+            <li>
+              <a 
+                href="https://montaworldpeace.proboards.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: 'white', textDecoration: 'none' }}
+              >
+                Message Board ↗
+              </a>
+            </li>
+          </ul>
+
+          {/* CONTRIBUTE / SUPPORT SECTION */}
+          {showSupport && (
+            <div className="support-box" style={{ 
+              marginTop: 'auto', 
+              paddingTop: '30px',
+              borderTop: '1px dashed rgba(255,255,255,0.2)',
+              position: 'relative'
+            }}>
+              <div style={{
+                background: 'rgba(0, 0, 0, 0.2)',
+                padding: '15px',
+                borderRadius: '8px',
+                border: '1px solid var(--color-orange)'
+              }}>
+                {/* DISMISS BUTTON */}
+                <button 
+                  onClick={() => setShowSupport(false)}
+                  style={{
+                    position: 'absolute',
+                    top: '35px',
+                    right: '10px',
+                    background: 'none',
+                    border: 'none',
+                    color: 'var(--color-orange)',
+                    cursor: 'pointer',
+                    fontSize: '0.8rem',
+                    fontFamily: 'monospace'
+                  }}
+                >
+                  [X]
+                </button>
+
+                <h5 style={{ 
+                  margin: '0 0 10px 0', 
+                  fontSize: '0.7rem', 
+                  letterSpacing: '1px', 
+                  color: 'var(--color-orange)',
+                  textTransform: 'uppercase',
+                  paddingRight: '20px'
+                }}>
+                  [ SUPPORT WORLD PEACE ]
+                </h5>
+                
+                <p style={{ 
+                  margin: '0 0 12px 0', 
+                  fontSize: '0.7rem', 
+                  lineHeight: '1.4', 
+                  opacity: 0.7 
+                }}>
+                  If you believe I add value to the world, consider contributing:
+                </p>
+
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <a href="https://ko-fi.com/montaworldpeace" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
+                    <span style={{ fontSize: '1.2rem' }}>☕</span> KO-FI
+                  </a>
+                  <a href="https://paypal.me/yourpaypal" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
+                    <span style={{ fontSize: '1.2rem' }}>💸</span> PAYPAL
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </nav>
+
+        {/* DYNAMIC MAIN CONTENT */}
+        <main className="main-content" style={{ flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/basketball" element={<Blog category="Basketball" title="Baksetball" description="No one has ever eaten more basketballs than Zach Edey." />} />
+            <Route path="/pamage" element={<Blog category="Pamage" title="Pamage's Diaries" description="You weren't invited here." />} />
+            <Route path="/personal" element={<Blog category="Personal" title="Personal Blog" description="Stuff that doesn't exactly qualify elsewhere." />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/videos" element={<Videos />} />
+            <Route path="/twitch" element={<Twitch isLive={isLive} />} />
+            <Route path="/socials" element={<Socials />} />
+            <Route path="/friends" element={<Friends />} />
+            <Route path="/library" element={<Library />} />
+            <Route path="/post/:slug" element={<PostDetail />} />
+          </Routes>
+        </main>
+
+      </div>
+    </Router>
+  );
+}
+
+// Button Style Object to avoid repetition
+const btnStyle = {
+  flex: 1,
+  textAlign: 'center',
+  padding: '10px 0',
+  background: 'transparent',
+  border: '1px solid var(--color-pink-hot)',
+  color: 'white',
+  textDecoration: 'none',
+  fontSize: '0.75rem',
+  fontWeight: 'bold',
+  borderRadius: '4px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '4px'
+};
+
+export default App;
+</file>
+
+<file path="src/data/musicList.js">
+export const musicList = [
+  {
+    id: "1",
+    title: "Ice Cave",
+    description: "I wrote this and I was afraid people would notice the idea came from a certain Nile song. I don't remember the song anymore.",
+    soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/matt-ice-cave"
+  },
+  {
+    id: "2",
+    title: "THE NEWS",
+    description: "HIGH BROADCAST ALERT.",
+    soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/the-news"
+  },
+  {
+    id: "3",
+    title: "Battle Victory",
+    description: "YOU WIN!",
+    soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/battle-victory"
+  },
+  {
+    id: "4",
+    title: "Gym/Dialogue",
+    description: "I'm gonna write something about this at some point.",
+    soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/gym-dialogue"
+  },
+  {
+    id: "5",
+    title: "Bounce Theme",
+    description: "Song based on the story of a friend's original character.",
+    soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/bounce-theme"
+  }
+];
+</file>
+
+</files>
