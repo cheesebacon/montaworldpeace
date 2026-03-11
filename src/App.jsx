@@ -9,18 +9,22 @@ import Videos from './pages/Videos';
 import Twitch from './pages/Twitch';
 import Socials from './pages/Socials';
 import Friends from './pages/Friends';
-import Blog from './pages/Blog';
 import Library from './pages/Library';
 import PostDetail from './pages/PostDetail';
 import PostTransformer from './pages/PostTransformer';
+import Basketball from './pages/Basketball';
+import Personal from './pages/Personal';
+import Pamage from './pages/Pamage';
+import NotFound from './pages/NotFound'; 
+import Recipes from './pages/Recipes';
 
 function App() {
   const [isLive, setIsLive] = useState(false);
   const [showSupport, setShowSupport] = useState(true); 
   const channelName = "montaworldpeace";
   
-const CLIENT_ID = import.meta.env.VITE_TWITCH_CLIENT_ID;
-const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
+  const CLIENT_ID = import.meta.env.VITE_TWITCH_CLIENT_ID;
+  const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
 
   useEffect(() => {
     async function checkStatus() {
@@ -57,17 +61,19 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
     <Router>
       <div className="app-container" style={{ display: 'flex', width: '100%', minHeight: '100vh' }}>
         
-        {/* STATIC LEFT FRAME */}
+        {/* SIDEBAR */}
         <nav className="sidebar" style={{ display: 'flex', flexDirection: 'column' }}>
           <h1>Monta World Peace</h1>
           <ul style={{ flex: 1 }}>
-            <li><Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link></li>
-            <li><Link to="/basketball" style={{ color: 'white', textDecoration: 'none' }}>Baksetball</Link></li>
-            <li><Link to="/personal" style={{ color: 'white', textDecoration: 'none' }}>Non-Baksetball</Link></li>
+            <li><Link to="/" className="glow-link" style={{ textDecoration: 'none' }}>My/Your Home :)</Link></li>
+            
+            <li><Link to="/basketball" style={{ color: 'white', textDecoration: 'none' }}>Baksetball Blog</Link></li>
+            <li><Link to="/personal" style={{ color: 'white', textDecoration: 'none' }}>Non-Baksetball Blog</Link></li>
             <li><Link to="/pamage" style={{ color: 'white', textDecoration: 'none' }}>Pamage's Diaries</Link></li>
-            <li><Link to="/library" style={{ color: 'white', textDecoration: 'none' }}>Library</Link></li>
-            <li><Link to="/music" style={{ color: 'white', textDecoration: 'none' }}>Music Repository</Link></li>
-            <li><Link to="/videos" style={{ color: 'white', textDecoration: 'none' }}>Video Archives</Link></li>
+            <li><Link to="/library" style={{ color: 'white', textDecoration: 'none' }}>Short Stories</Link></li>
+            <li><Link to="/music" style={{ color: 'white', textDecoration: 'none' }}>Music I've Made</Link></li>
+            <li><Link to="/videos" style={{ color: 'white', textDecoration: 'none' }}>Videos I've Made</Link></li>
+            <li><Link to="/recipes" style={{ color: 'white', textDecoration: 'none' }}>Recipes</Link></li>
             
             <li>
               <Link to="/twitch" style={{ color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -76,8 +82,9 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
               </Link>
             </li>
 
-            <li><Link to="/socials" style={{ color: 'white', textDecoration: 'none' }}>Social Links</Link></li>
-            <li><Link to="/friends" style={{ color: 'white', textDecoration: 'none' }}>Friends' Corner</Link></li>
+            <li><Link to="/socials" style={{ color: 'white', textDecoration: 'none' }}>Socials</Link></li>
+            
+            <li><Link to="/friends" className="glow-link" style={{ textDecoration: 'none' }}>Friends' Corner!!</Link></li>
 
             <li>
               <a 
@@ -86,7 +93,7 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
                 rel="noopener noreferrer" 
                 style={{ color: 'white', textDecoration: 'none' }}
                 >
-                Portfolio ↗
+                Creative Portfolio ↗
               </a>
             </li>
 
@@ -99,6 +106,10 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
               >
                 Message Board ↗
               </a>
+            </li>
+
+            <li style={{ display: 'none' }}>
+              <a href="https://tech.lgbt/@MontaWorldPeace" rel="me">Mastodon Verify</a>
             </li>
           </ul>
 
@@ -116,7 +127,6 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
                 borderRadius: '8px',
                 border: '1px solid var(--color-orange)'
               }}>
-                {/* DISMISS BUTTON */}
                 <button 
                   onClick={() => setShowSupport(false)}
                   style={{
@@ -158,7 +168,7 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
                   <a href="https://ko-fi.com/montaworldpeace" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
                     <span style={{ fontSize: '1.2rem' }}>☕</span> KO-FI
                   </a>
-                  <a href="paypal.me/MontaWorldPeace" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
+                  <a href="https://www.paypal.me/MontaWorldPeace" target="_blank" rel="noopener noreferrer" className="contribute-btn" style={btnStyle}>
                     <span style={{ fontSize: '1.2rem' }}>💸</span> PAYPAL
                   </a>
                 </div>
@@ -171,20 +181,21 @@ const CLIENT_SECRET = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
         <main className="main-content" style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/basketball" element={<Blog category="Basketball" title="Baksetball" description="No one has ever eaten more basketballs than Zach Edey." />} />
-            <Route path="/pamage" element={<Blog category="Pamage" title="Pamage's Diaries" description="You weren't invited here." />} />
-            <Route path="/personal" element={<Blog category="Personal" title="Personal Blog" description="Stuff that doesn't exactly qualify elsewhere." />} />
+            <Route path="/basketball" element={<Basketball />} />
+            <Route path="/pamage" element={<Pamage />} />
+            <Route path="/personal" element={<Personal />} />
             <Route path="/music" element={<Music />} />
             <Route path="/videos" element={<Videos />} />
+            <Route path="/recipes" element={<Recipes />} />
             <Route path="/twitch" element={<Twitch isLive={isLive} />} />
             <Route path="/socials" element={<Socials />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/library" element={<Library />} />
             <Route path="/post/:slug" element={<PostDetail />} />
             <Route path="/transformer" element={<PostTransformer />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-
       </div>
     </Router>
   );

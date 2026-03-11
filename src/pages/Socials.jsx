@@ -2,11 +2,12 @@ import React from 'react';
 
 export default function Socials() {
   const socialLinks = [
-    { name: 'Bluesky', url: 'https://bsky.app/profile/montaworldpeace.bsky.social', subtitle: 'The new timeline' },
-    { name: 'YouTube', url: 'https://www.youtube.com/@matrutkowski', subtitle: 'Video archives & groks' },
-    { name: 'Twitch', url: 'https://www.twitch.tv/montaworldpeace', subtitle: 'Live broadcasts' },
-    { name: 'FanSided', url: 'https://fansided.com/author/mattrutkowski/', subtitle: 'Professional output' },
-    { name: 'Tenor GIFs', url: 'https://tenor.com/users/montaworldpeace', subtitle: 'Reaction repository' }
+    { name: 'Bluesky', url: 'https://bsky.app/profile/montaworldpeace.bsky.social', subtitle: 'Everyone on Twitter is a bot or a nazi.' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@matrutkowski', subtitle: 'My personal YouTube account I am hoping to do more with.' },
+    { name: 'Twitch', url: 'https://www.twitch.tv/montaworldpeace', subtitle: 'Live broadcasts from my computer to yours or one you stole/borrowed' },
+    { name: 'FanSided', url: 'https://fansided.com/author/mattrutkowski/', subtitle: 'Professional output on my only ever Sports home' },
+    { name: 'Tenor GIFs', url: 'https://tenor.com/users/montaworldpeace', subtitle: 'Just a bunch of dumb stuff you can use' },
+    { name: 'JT Team YouTube', url: 'https://www.youtube.com/@tropicalmeow', subtitle: 'The videos Tiger and I do together. More coming soon!'}
   ];
 
   const lightPurple = '#9D50BB';
@@ -20,10 +21,10 @@ export default function Socials() {
         borderBottom: '2px dashed var(--color-orange)' 
       }}>
         <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2.5rem', margin: 0 }}>
-          Connect with Monta
+          Socials and Stuff
         </h2>
         <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
-          Follow the movement across the web.
+          Here are some places I do things that aren't specifically on this website! The internet is so big.
         </p>
       </div>
 
@@ -82,7 +83,7 @@ export default function Socials() {
           <p style={{ margin: '5px 0 0 0', fontWeight: 'bold', fontSize: '0.9rem', color: 'var(--color-purple-retro)' }}>
             @MontaWorldPeace
           </p>
-          <span style={{ fontSize: '0.65rem', opacity: 0.4, marginTop: '10px', display: 'block' }}>Direct comms</span>
+          <span style={{ fontSize: '0.65rem', opacity: 0.4, marginTop: '10px', display: 'block' }}>For as long as I don't have to give my face to anyone, anyway</span>
         </div>
 
         {/* MASTODON CARD */}
@@ -95,9 +96,9 @@ export default function Socials() {
         }}>
           <h3 style={{ margin: '0', color: lightPurple, fontSize: '1.1rem' }}>Mastodon</h3>
           <p style={{ margin: '5px 0 0 0', fontWeight: 'bold', fontSize: '0.85rem', color: 'var(--color-purple-retro)' }}>
-            @MontaWorldPeace
+            @MontaWorldPeace on tech.lgbt
           </p>
-          <span style={{ fontSize: '0.65rem', opacity: 0.4, marginTop: '5px', display: 'block' }}>on tech.lgbt</span>
+          <span style={{ fontSize: '0.65rem', opacity: 0.4, marginTop: '5px', display: 'block' }}>If you can figure out how to add me, go for it!</span>
         </div>
       </div>
     </div>

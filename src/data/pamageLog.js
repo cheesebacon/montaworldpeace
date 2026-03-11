@@ -1,6 +1,6 @@
 export const pamageLog = {
-  slug: "pamage-placeholder",
-  title: "The weird pond",
+  slug: "pamage-placeholder1",
+  title: "The weird pond (also a placeholder)",
   date: "2024-05-27",
   category: "Pamage",
   body: [

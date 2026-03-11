@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { allPosts } from '../data/index';       
 import { libraryData } from '../data/libraryData'; 
 
@@ -11,17 +11,36 @@ export default function PostDetail() {
   // 1. Find the post
   const post = allPosts.find(p => p.slug === slug) || libraryData.find(s => s.slug === slug);
 
-  // 2. Scroll tracking logic
+  // 2. Determine return path based on category
+  const getReturnPath = () => {
+    if (!post) return "/";
+    if (post.category === "Basketball") return "/basketball";
+    if (post.category === "Personal") return "/personal";
+    if (post.category === "Pamage") return "/pamage";
+    if (post.category === "Recipes") return "/recipes";
+    return "/library";
+  };
+
+  // 3. Scroll tracking logic
   useEffect(() => {
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const winHeight = window.innerHeight;
+      const totalHeight = docHeight - winHeight;
+      
+      if (totalHeight <= 0) {
+        setScrollProgress(100);
+        return;
+      }
+
       const progress = (window.scrollY / totalHeight) * 100;
       setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [slug]); // Reset effect if we switch between posts
+  }, [slug, post]); 
 
   if (!post) {
     return (
@@ -80,7 +99,20 @@ export default function PostDetail() {
               <div key={index} className="post-segment">
                 <div className="main-text">
                   <p style={{ lineHeight: '1.8', fontSize: '1.1rem', margin: '0 0 1.5rem 0' }}>
-                    {seg.text}
+                    {/* AUTO-LINK LOGIC HERE */}
+                    {typeof seg.text === 'string' && seg.text.startsWith('http') ? (
+                      <a 
+                        href={seg.text} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="post-link" // <--- Updated
+                        style={{ wordBreak: 'break-all' }}
+                        >
+                          {seg.text}
+                      </a>
+                    ) : (
+                      seg.text
+                    )}
                   </p>
                 </div>
                 {seg.note && (
@@ -97,8 +129,43 @@ export default function PostDetail() {
           )}
         </section>
 
-        <footer style={{ marginTop: '40px', paddingTop: '20px', borderTop: '2px dashed var(--color-orange)' }}>
-          <p style={{ fontStyle: 'italic', opacity: 0.7 }}>[ END OF RECORD ]</p>
+        <footer style={{ 
+          marginTop: '60px', 
+          paddingTop: '20px', 
+          borderTop: '2px dashed var(--color-orange)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div>
+            <p style={{ fontStyle: 'italic', opacity: 0.7, margin: 0 }}>[ THAT'S_IT ]</p>
+          </div>
+          
+          <Link 
+            to={getReturnPath()} 
+            className="back-to-blog-link"
+            style={{ 
+              color: 'var(--color-orange)', 
+              textDecoration: 'none', 
+              fontWeight: 'bold', 
+              fontSize: '0.9rem',
+              textTransform: 'uppercase',
+              border: '1px solid var(--color-orange)',
+              padding: '8px 15px',
+              borderRadius: '4px',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--color-orange)';
+              e.currentTarget.style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'none';
+              e.currentTarget.style.color = 'var(--color-orange)';
+            }}
+          >
+            Return to {post.category || "Library"} index →
+          </Link>
         </footer>
       </article>
     </div>

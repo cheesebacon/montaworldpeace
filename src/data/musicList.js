@@ -28,5 +28,11 @@ export const musicList = [
     title: "Bounce Theme",
     description: "Song based on the story of a friend's original character.",
     soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/bounce-theme"
+  },
+  {
+    id: "6",
+    title: "The Basketball Song",
+    description: "Sometimes?",
+    soundcloudUrl: "https://soundcloud.com/lockyourcheesebacon/the-basketball-song"
   }
 ];

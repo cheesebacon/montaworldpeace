@@ -86,7 +86,7 @@ export default function Twitch() {
                 {isLive ? "BROADCAST LIVE" : "SIGNAL LOST / OFFLINE"}
               </span>
             </div>
-            <p>I don't know I guess this would be a good thing to make for my page as well for people who may not want to go on Twitch directly. Hi Mom!</p>
+            <p>I just wanted a place to have my Twitch stream to give to people who may not know exactly how to move around on Twitch! Hi Mom! I mean that with love! So much love!</p>
             
             <a 
               href={`https://twitch.tv/${channelName}`}

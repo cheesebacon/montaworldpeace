@@ -16,7 +16,7 @@ export default function Videos() {
           Video Archives
         </h2>
         <p style={{ fontSize: '1.1rem', opacity: 0.8, marginTop: '10px' }}>
-          Visual groks and documented transmissions.
+          Archives of videos. Videos presented and collated in an archival fashion. Incredible archives, mediocre videos. All here. For you.
         </p>
       </div>
 

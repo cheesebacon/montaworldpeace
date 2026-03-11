@@ -18,8 +18,13 @@ export default function Home() {
 
   // Helper function for the timestamp logic
   const getRelativeTime = (dateString) => {
+    if (!dateString) return "ARCHIVE";
     const now = new Date();
     const past = new Date(dateString);
+    
+    // Check if date is valid
+    if (isNaN(past.getTime())) return dateString; 
+
     const diffInMs = now - past;
     const diffInMins = Math.floor(diffInMs / 60000);
     const diffInHours = Math.floor(diffInMins / 60);
@@ -78,6 +83,13 @@ export default function Home() {
             color: var(--color-pink-hot);
             transition: color 0.2s ease;
           }
+
+          /* Ensure grid cards are uniform */
+          .grid-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+          }
         `}
       </style>
 
@@ -100,13 +112,13 @@ export default function Home() {
           <h3 style={{ color: 'var(--color-orange)', textTransform: 'uppercase', fontSize: '0.9rem', marginBottom: '15px' }}>
             [ Author_Profile ]
           </h3>
-          <p style={{ fontSize: '1.1rem', margin: 0 }}>
+          <p style={{ fontSize: '1.1rem', margin: '0 0 15px 0' }}>
           Hiya! I am Mat Rutkowski. I made this. This isn't the thing I really care about though. I just wanted a home to put the stuff I actually care about: creative pursuits, basketball interests that don't fit elsewhere, music, dumb videos, all of that. I'm 39 and have done a lot of shit. Some of it is cool. It needs a place to live.
           </p>
-          <p style={{ fontSize: '1.1rem', margin: 0 }}>
+          <p style={{ fontSize: '1.1rem', margin: '0 0 15px 0' }}>
           So that's what I'm doing now. I wanted to make this site look like the sites I really enjoyed while I first discovered the internet in the early 2000s. I guess it's kind of updated. I really tried to research architecture to go completely old-school and make actual frames and shit, but I was talked down from that over and over again.
           </p>
-          <p style={{ fontSize: '1.1rem', margin: 0 }}>
+          <p style={{ fontSize: '1.1rem', margin: '0 0 15px 0' }}>
           I guess this isn't bad though. Hopefully this Home page kind of points you to places to go. I am writing this on 3/4/2026. There is very little content up here at this point. I plan to change that, but yeah. If you're reading this in the near future, I completely understand being like 'yeah nah im good' and heading out. So it goes.
           </p>
           <p style={{ fontSize: '1.1rem', margin: 0 }}>
@@ -116,7 +128,7 @@ export default function Home() {
 
         <section className="glow-box" style={{ padding: '20px', borderRadius: '12px', background: 'rgba(255,255,255,0.02)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-            <h3 style={{ fontSize: '0.8rem', margin: 0, opacity: 0.5, letterSpacing: '1px' }}>LATEST_ACTIVITY</h3>
+            <h3 style={{ fontSize: '0.8rem', margin: 0, opacity: 0.5, letterSpacing: '1px' }}>[ LATEST_ACTIVITY ]</h3>
             <a href="https://bsky.app/profile/montaworldpeace.bsky.social" target="_blank" rel="noreferrer" style={{ 
               color: '#0085ff', 
               fontSize: '0.7rem', 
@@ -155,55 +167,134 @@ export default function Home() {
         </section>
       </div>
 
-      {/* FULL GRID */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '40px' }}>
+      {/* REVAMPED FULL GRID - Corrected for 6-across layout */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
+        gap: '15px', 
+        marginBottom: '40px' 
+      }}>
+        
+        {/* BASKETBALL CARD */}
         {latestHoops && (
-          <Link to={`/post/${latestHoops.slug}`}>
-            <div className="content-card" style={{ border: '2px solid var(--color-pink-hot)', height: '100%', minHeight: '120px' }}>
-              <h4 style={{ color: 'var(--color-pink-hot)', marginTop: 0 }}>Latest Basketball</h4>
-              <p style={{ fontSize: '0.85rem' }}>{latestHoops.title}</p>
+          <Link to={`/post/${latestHoops.slug}`} className="grid-card-link">
+            <div className="content-card" style={{ border: '2px solid var(--color-pink-hot)', width: '100%', height: '100%', padding: '15px' }}>
+              <span style={{ fontSize: '0.6rem', color: 'var(--color-pink-hot)', fontWeight: 'bold', fontFamily: 'monospace' }}>
+                [ UPDATED: {getRelativeTime(latestHoops.date)} ]
+              </span>
+              <h4 style={{ color: 'var(--color-pink-hot)', margin: '8px 0 4px 0', fontSize: '0.9rem' }}>NEW Basketball info</h4>
+              <p style={{ fontSize: '0.8rem', margin: 0 }}>{latestHoops.title}</p>
             </div>
           </Link>
         )}
 
+        {/* PERSONAL CARD */}
         {latestPersonal && (
-          <Link to={`/post/${latestPersonal.slug}`}>
-            <div className="content-card" style={{ border: '2px solid var(--color-orange)', height: '100%', minHeight: '120px' }}>
-              <h4 style={{ color: 'var(--color-orange)', marginTop: 0 }}>Latest Personal</h4>
-              <p style={{ fontSize: '0.85rem' }}>{latestPersonal.title}</p>
+          <Link to={`/post/${latestPersonal.slug}`} className="grid-card-link">
+            <div className="content-card" style={{ border: '2px solid var(--color-orange)', width: '100%', height: '100%', padding: '15px' }}>
+              <span style={{ fontSize: '0.6rem', color: 'var(--color-orange)', fontWeight: 'bold', fontFamily: 'monospace' }}>
+                [ UPDATED: {getRelativeTime(latestPersonal.date)} ]
+              </span>
+              <h4 style={{ color: 'var(--color-orange)', margin: '8px 0 4px 0', fontSize: '0.9rem' }}>EXTREME Personal Blog</h4>
+              <p style={{ fontSize: '0.8rem', margin: 0 }}>{latestPersonal.title}</p>
             </div>
           </Link>
         )}
 
+        {/* PAMAGE CARD */}
         {latestPamage && (
-          <Link to={`/post/${latestPamage.slug}`}>
-            <div className="content-card" style={{ border: '2px solid var(--color-purple-retro)', height: '100%', minHeight: '120px' }}>
-              <h4 style={{ color: 'var(--color-purple-retro)', marginTop: 0 }}>Pamage Logs</h4>
-              <p style={{ fontSize: '0.85rem' }}>{latestPamage.title}</p>
+          <Link to={`/post/${latestPamage.slug}`} className="grid-card-link">
+            <div className="content-card" style={{ border: '2px solid var(--color-purple-retro)', width: '100%', height: '100%', padding: '15px' }}>
+              <span style={{ fontSize: '0.6rem', color: 'var(--color-purple-retro)', fontWeight: 'bold', fontFamily: 'monospace' }}>
+                [ UPDATED: {getRelativeTime(latestPamage.date)} ]
+              </span>
+              <h4 style={{ color: 'var(--color-purple-retro)', margin: '8px 0 4px 0', fontSize: '0.9rem' }}>NEWEST Pamage Fun</h4>
+              <p style={{ fontSize: '0.8rem', margin: 0 }}>{latestPamage.title}</p>
             </div>
           </Link>
         )}
 
-        <Link to="/library">
-          <div className="content-card" style={{ border: '2px solid var(--color-pink-hot)', height: '100%', minHeight: '120px' }}>
-            <h4 style={{ color: 'var(--color-pink-hot)', marginTop: 0 }}>Library</h4>
-            <p style={{ fontSize: '0.85rem' }}>Featured: {beachStory.title}</p>
+        {/* LIBRARY CARD */}
+        <Link to="/library" className="grid-card-link">
+          <div className="content-card" style={{ border: '2px solid var(--color-pink-hot)', width: '100%', height: '100%', padding: '15px' }}>
+            <span style={{ fontSize: '0.6rem', color: 'var(--color-pink-hot)', fontWeight: 'bold', fontFamily: 'monospace' }}>
+              [ STATUS: FEATURED ]
+            </span>
+            <h4 style={{ color: 'var(--color-pink-hot)', margin: '8px 0 4px 0', fontSize: '0.9rem' }}>FEATURED Short Story</h4>
+            <p style={{ fontSize: '0.8rem', margin: 0 }}>{beachStory.title}</p>
           </div>
         </Link>
 
-        <Link to="/videos">
-          <div className="content-card" style={{ border: '2px solid var(--color-orange)', height: '100%', minHeight: '120px' }}>
-            <h4 style={{ color: 'var(--color-orange)', marginTop: 0 }}>Video Archives</h4>
-            <p style={{ fontSize: '0.85rem' }}>{latestVideo?.title || "No videos found."}</p>
+        {/* VIDEO CARD */}
+        <Link to="/videos" className="grid-card-link">
+          <div className="content-card" style={{ border: '2px solid var(--color-orange)', width: '100%', height: '100%', padding: '15px' }}>
+            <span style={{ fontSize: '0.6rem', color: 'var(--color-orange)', fontWeight: 'bold', fontFamily: 'monospace' }}>
+              [ STATUS: RECENT ]
+            </span>
+            <h4 style={{ color: 'var(--color-orange)', margin: '8px 0 4px 0', fontSize: '0.9rem' }}>MIND-CARESSING Vids</h4>
+            <p style={{ fontSize: '0.8rem', margin: 0 }}>{latestVideo?.title || "Searching..."}</p>
           </div>
         </Link>
 
-        <Link to="/music">
-          <div className="content-card" style={{ border: '2px solid var(--color-purple-retro)', height: '100%', minHeight: '120px' }}>
-            <h4 style={{ color: 'var(--color-purple-retro)', marginTop: 0 }}>Music Repository</h4>
-            <p style={{ fontSize: '0.85rem' }}>Latest: {latestMusic?.title || "No tracks found."}</p>
+        {/* MUSIC CARD */}
+        <Link to="/music" className="grid-card-link">
+          <div className="content-card" style={{ border: '2px solid var(--color-purple-retro)', width: '100%', height: '100%', padding: '15px' }}>
+            <span style={{ fontSize: '0.6rem', color: 'var(--color-purple-retro)', fontWeight: 'bold', fontFamily: 'monospace' }}>
+              [ STATUS: UPLOADED ]
+            </span>
+            <h4 style={{ color: 'var(--color-purple-retro)', margin: '8px 0 4px 0', fontSize: '0.9rem' }}>LEAST OLD Music</h4>
+            <p style={{ fontSize: '0.8rem', margin: 0 }}>{latestMusic?.title || "Searching..."}</p>
           </div>
         </Link>
+      </div>
+
+      {/* FEATURED PROMO */}
+      <div className="featured-promo" style={{ 
+            marginTop: '30px', 
+            border: '2px solid var(--color-orange)', 
+            padding: '20px', 
+            borderRadius: '8px',
+            background: 'rgba(255, 140, 0, 0.05)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <h4 style={{ margin: '0 0 15px 0', color: 'var(--color-orange)', textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '1px' }}>
+              [ Featured_Friend_Project ]
+            </h4>
+
+            <div style={{ marginBottom: '10px' }}>
+              <a 
+                href="https://snkrgirl.cfd/blog/posts/2026-02-22-adistar.html" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{ 
+                  color: 'var(--color-pink-hot)', 
+                  fontSize: '1.5rem', 
+                  fontWeight: 'bold', 
+                  textDecoration: 'underline',
+                  lineHeight: '1.2',
+                  display: 'block'
+                }}
+              >
+                The Adidas Adistar is a psyop
+              </a>
+            </div>
+
+            <p style={{ fontSize: '1rem', margin: 0, opacity: 0.9, lineHeight: '1.4' }}>
+              Agatha explains why this shoe is ugly, and extremely ugly, and why it should be ugly to you too. Well not really, but I had to sell it.
+            </p>
+
+            <div style={{ 
+              position: 'absolute', 
+              right: '10px', 
+              bottom: '-5px', 
+              fontSize: '3rem', 
+              opacity: 0.1, 
+              pointerEvents: 'none',
+              fontWeight: 'bold' 
+            }}>
+              FRIEND_AGATHA_GOOD
+            </div>
       </div>
 
       {/* SYSTEM STATUS */}
@@ -215,12 +306,12 @@ export default function Home() {
         marginTop: '60px'
       }}>
         <h4 style={{ margin: '0 0 10px 0', fontSize: '0.9rem', textTransform: 'uppercase', color: 'var(--color-purple-retro)' }}>
-          [ SYSTEM_STATUS ]
+          [ PERSONAL_STATUS ]
         </h4>
         <p style={{ margin: 0, fontSize: '0.85rem', fontFamily: 'monospace', lineHeight: '1.6' }}>
-          {`> Just doing my best here, y'all.`}<br/>
-          {`> One day at a time.`}<br/>
-          {`> One at a time.`}
+          {`> It's just really nice to have everyone here.`}<br/>
+          {`> No, really my back is fine. I just bend over like this sometimes for fun.`}<br/>
+          {`> I'm going to go into my room for a little bit. There's a second container of deviled eggs in the fridge.`}
         </p>
       </div>
     </div>

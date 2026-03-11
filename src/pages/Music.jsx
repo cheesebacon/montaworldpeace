@@ -6,7 +6,7 @@ export default function Music() {
     <div className="content-card" style={{ maxWidth: 'none' }}>
       <h2 style={{ color: 'var(--color-purple-retro)', fontSize: '2rem' }}>Music Repository</h2>
       <p style={{ marginBottom: '30px', opacity: 0.8 }}>
-        Tracks are creative commons and shit I guess. Feel free to use them.
+        Hiya! I don't know if there is a proper way to say this? Tracks are creative commons and shit. I guess. That's probably how it works. Feel free to use them if you want. I also take song requests if you want me to write something in MIDI for you.
       </p>
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>

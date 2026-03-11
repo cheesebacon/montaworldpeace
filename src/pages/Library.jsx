@@ -12,10 +12,10 @@ export default function Library() {
   return (
     <div className="content-card">
       <h2 style={{ borderBottom: '2px solid var(--color-orange)', color: 'var(--color-purple-retro)' }}>
-        The Library
+        My Short Stories
       </h2>
       <p style={{ marginBottom: '30px', opacity: 0.8 }}>
-        Completed stories and long-form prose.
+        Stories are like blogs or basketball pieces except anyone 25 or younger can't sit through them. I am just playing around though. I blame the older generations. Not them.
       </p>
 
       <div style={{ 
